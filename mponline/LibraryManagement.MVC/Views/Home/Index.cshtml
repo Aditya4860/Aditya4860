@@ -1,0 +1,202 @@
+@model LibraryManagement.MVC.ViewModels.DashboardViewModel
+
+@{
+    ViewData["Title"] = "Dashboard";
+}
+
+<div class="page-header px-4">
+    <div class="container-fluid p-0">
+        <h1><i class="bi bi-grid-fill me-2"></i>Dashboard</h1>
+        <p>Overview of library statistics and recent activities.</p>
+    </div>
+</div>
+
+<div class="container-fluid px-4 pb-5">
+    
+    <!-- Summary Stats Row 1 (Core) -->
+    <div class="row g-3 mb-3">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(99,102,241,0.15); color:var(--primary);">
+                    <i class="bi bi-collection-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalBooks</h3>
+                    <p class="text-secondary small mb-0 fw-500">Total Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
+                    <i class="bi bi-check-circle-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.AvailableBooks</h3>
+                    <p class="text-secondary small mb-0 fw-500">Available Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(239,68,68,0.15); color:var(--danger);">
+                    <i class="bi bi-book-half fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.BorrowedBooks</h3>
+                    <p class="text-secondary small mb-0 fw-500">Borrowed Books</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(99,102,241,0.15); color:var(--primary);">
+                    <i class="bi bi-people-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalStudents</h3>
+                    <p class="text-secondary small mb-0 fw-500">Students</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Stats Row 1.5 (New Entities) -->
+    <div class="row g-3 mb-3">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(236,72,153,0.15); color:var(--accent);">
+                    <i class="bi bi-person-badge-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalLibrarians</h3>
+                    <p class="text-secondary small mb-0 fw-500">Librarians</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(245,158,11,0.15); color:var(--warning);">
+                    <i class="bi bi-journal-text fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalMagazines</h3>
+                    <p class="text-secondary small mb-0 fw-500">Magazines</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
+                    <i class="bi bi-newspaper fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalNewspapers</h3>
+                    <p class="text-secondary small mb-0 fw-500">Newspapers</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#f3e8ff; color:#9333ea;">
+                    <i class="bi bi-journal-album fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalPublications</h3>
+                    <p class="text-secondary small mb-0 fw-500">Total Pubs</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Stats Row 2 (Today/Fines) -->
+    <div class="row g-3 mb-4">
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#eff6ff; color:var(--primary);">
+                    <i class="bi bi-calendar-check-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TodaysBorrowings</h3>
+                    <p class="text-secondary small mb-0 fw-500">Today's Borrowings</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
+                    <i class="bi bi-arrow-return-left fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TodaysReturns</h3>
+                    <p class="text-secondary small mb-0 fw-500">Today's Returns</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#fef2f2; color:var(--danger);">
+                    <i class="bi bi-exclamation-octagon-fill fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">₹@Model.PendingFine</h3>
+                    <p class="text-secondary small mb-0 fw-500">Pending Fine</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100">
+                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
+                    <i class="bi bi-cash-stack fs-4"></i>
+                </div>
+                <div>
+                    <h3 class="fs-4 mb-0 fw-bold text-dark">₹@Model.CollectedFine</h3>
+                    <p class="text-secondary small mb-0 fw-500">Collected Fine</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Featured Books & Announcements -->
+    @inject LibraryManagement.MVC.Data.LibraryDbContext DbContext
+    @{
+        var featuredBooks = DbContext.Books.Where(b => b.IsAvailable).Take(3).ToList();
+    }
+    
+    <div class="row g-4 mb-4">
+        <div class="col-lg-8">
+            <h4 class="mb-3 fw-bold text-dark"><i class="bi bi-star-fill text-warning me-2"></i>Featured Books</h4>
+            <div class="row g-3">
+                @for(int i = 0; i < featuredBooks.Count; i++)
+                {
+                    var book = featuredBooks[i];
+                    var img = $"book{i + 1}.jpg";
+                    <div class="col-md-4">
+                        <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                            <img src="~/images/@img" class="card-img-top" alt="Featured Book" style="height: 250px; object-fit: cover;">
+                            <div class="card-body">
+                                <h5 class="card-title fw-bold text-truncate" title="@book.Title">@book.Title</h5>
+                                <p class="card-text text-muted small mb-3">By @book.Author</p>
+                                <a asp-controller="Books" asp-action="Details" asp-route-id="@book.Id" class="btn btn-outline-primary btn-sm w-100 rounded-pill">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        <div class="col-lg-4">
+            <h4 class="mb-3 fw-bold text-dark"><i class="bi bi-megaphone-fill text-danger me-2"></i>Announcements</h4>
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden h-100">
+                <img src="~/images/announcement.jpg" class="card-img-top" alt="Announcement" style="height: 150px; object-fit: cover;">
+                <div class="card-body bg-light">
+                    <h5 class="fw-bold mb-2">Library Closed Next Friday</h5>
+                    <p class="text-muted small">Please return all due books by Thursday. The library will be closed for maintenance.</p>
+                    <hr>
+                    <h5 class="fw-bold mb-2">New Magazines Arrived</h5>
+                    <p class="text-muted small">Check out the latest issues of Tech Monthly and Science Today in the Publications section.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

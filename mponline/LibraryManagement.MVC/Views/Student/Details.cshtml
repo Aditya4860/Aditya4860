@@ -1,0 +1,101 @@
+@model LibraryManagement.MVC.Models.Student
+
+@{
+    ViewData["Title"] = "Student Details";
+}
+
+<div class="page-header">
+    <div class="container">
+        <h1><i class="bi bi-person-lines-fill me-2"></i>Student Details</h1>
+        <p>Information about the student.</p>
+    </div>
+</div>
+
+<main class="container page-wrapper">
+    <div class="card shadow-sm col-md-8 mx-auto">
+        <div class="card-body p-4">
+            <h4 class="card-title text-primary fw-bold mb-4">@Model.Name</h4>
+            
+            <dl class="row mb-0">
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.EnrollmentNo)</dt>
+                <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.EnrollmentNo)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Email)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Email)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Phone)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Phone)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Department)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Department)</dd>
+
+                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Semester)</dt>
+                <dd class="col-sm-8">@Html.DisplayFor(model => model.Semester)</dd>
+            </dl>
+        </div>
+        </div>
+    </div>
+
+    @inject LibraryManagement.MVC.Data.LibraryDbContext DbContext
+    @using Microsoft.EntityFrameworkCore
+    @{
+        var borrowRecords = DbContext.BorrowRecords
+            .Include(b => b.Book)
+            .Include(b => b.Publication)
+            .Where(b => b.StudentId == Model.Id)
+            .OrderByDescending(b => b.BorrowDate)
+            .ToList();
+    }
+    
+    <div class="card shadow-sm col-md-8 mx-auto mt-4">
+        <div class="card-header bg-white pt-3 pb-2">
+            <span class="fw-bold"><i class="bi bi-clock-history text-primary fs-5 me-2"></i>Borrowing History</span>
+        </div>
+        <div class="card-body p-0">
+            @if (borrowRecords.Any())
+            {
+                <table class="table table-hover mb-0 align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th class="ps-4">Item</th>
+                            <th>Borrow Date</th>
+                            <th>Due Date</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var record in borrowRecords)
+                        {
+                            var itemName = record.Book != null ? record.Book.Title : (record.Publication != null ? record.Publication.Title : "Unknown Item");
+                            <tr>
+                                <td class="ps-4 fw-bold text-dark">@itemName</td>
+                                <td>@record.BorrowDate.ToShortDateString()</td>
+                                <td>@record.DueDate.ToShortDateString()</td>
+                                <td>
+                                    @if (record.ReturnDate.HasValue)
+                                    {
+                                        <span class="badge bg-success">Returned @record.ReturnDate.Value.ToShortDateString()</span>
+                                    }
+                                    else if (DateTime.Today > record.DueDate)
+                                    {
+                                        <span class="badge bg-danger">Overdue</span>
+                                    }
+                                    else
+                                    {
+                                        <span class="badge bg-warning text-dark">Active</span>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <div class="p-4 text-center text-muted">
+                    No borrowing history for this student.
+                </div>
+            }
+        </div>
+    </div>
+</main>

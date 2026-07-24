@@ -1,0 +1,69 @@
+@model LibraryManagement.MVC.Models.Book
+
+@{
+    ViewData["Title"] = "Edit Book";
+}
+
+<div class="page-header">
+    <div class="container">
+        <h1><i class="bi bi-pencil-square me-2"></i>Edit Book</h1>
+        <p>Modify book details.</p>
+    </div>
+</div>
+
+<main class="container page-wrapper">
+    <div class="card shadow-sm col-md-8 mx-auto">
+        <div class="card-body p-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="mb-3">
+                    <label asp-for="Title" class="form-label fw-bold"></label>
+                    <input asp-for="Title" class="form-control" />
+                    <span asp-validation-for="Title" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Author" class="form-label fw-bold"></label>
+                    <input asp-for="Author" class="form-control" />
+                    <span asp-validation-for="Author" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ISBN" class="form-label fw-bold"></label>
+                    <input asp-for="ISBN" class="form-control" />
+                    <span asp-validation-for="ISBN" class="text-danger small"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Category" class="form-label fw-bold"></label>
+                    <input asp-for="Category" class="form-control" />
+                    <span asp-validation-for="Category" class="text-danger small"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="TotalCopies" class="form-label fw-bold"></label>
+                        <input asp-for="TotalCopies" class="form-control" type="number" />
+                        <span asp-validation-for="TotalCopies" class="text-danger small"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="AvailableCopies" class="form-label fw-bold"></label>
+                        <input asp-for="AvailableCopies" class="form-control" type="number" />
+                        <span asp-validation-for="AvailableCopies" class="text-danger small"></span>
+                    </div>
+                </div>
+
+                <div class="d-flex justify-content-between mt-4">
+                    <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Back to List</a>
+                    <button type="submit" class="btn btn-primary"><i class="bi bi-save"></i> Save Changes</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

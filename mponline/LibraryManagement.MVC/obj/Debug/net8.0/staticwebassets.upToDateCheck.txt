@@ -1,0 +1,9 @@
+wwwroot\css\style.css
+wwwroot\images\announcement.jpg
+wwwroot\images\book1.jpg
+wwwroot\images\book2.jpg
+wwwroot\images\book3.jpg
+wwwroot\js\app.js
+wwwroot\js\books.js
+wwwroot\js\fines.js
+wwwroot\js\students.js

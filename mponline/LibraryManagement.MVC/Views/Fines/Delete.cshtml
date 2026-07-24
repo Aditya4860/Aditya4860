@@ -1,0 +1,58 @@
+@model LibraryManagement.MVC.Models.Fine
+
+@{
+    ViewData["Title"] = "Delete Fine";
+}
+
+<div class="page-header">
+    <div class="container">
+        <h1><i class="bi bi-trash-fill me-2"></i>Delete Fine</h1>
+        <p class="text-danger">Are you sure you want to delete this fine record?</p>
+    </div>
+</div>
+
+<main class="container page-wrapper">
+    <nav aria-label="breadcrumb" class="mb-4">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a asp-action="Index" class="text-primary text-decoration-none">Fines List</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Delete Fine</li>
+        </ol>
+    </nav>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card shadow-sm border border-danger">
+                <div class="card-header bg-danger bg-opacity-10 pt-3 pb-2 border-bottom-0">
+                    <span class="fw-bold text-danger"><i class="bi bi-exclamation-triangle-fill fs-5 me-2"></i>Confirm Deletion</span>
+                </div>
+                <div class="card-body">
+                    <dl class="row mb-0">
+                        <dt class="col-sm-4 text-muted">Fine ID:</dt>
+                        <dd class="col-sm-8 fw-bold">@Model.Id</dd>
+
+                        <dt class="col-sm-4 text-muted">Student:</dt>
+                        <dd class="col-sm-8">@Model.Student?.Name (@Model.Student?.EnrollmentNo)</dd>
+                        
+                        <dt class="col-sm-4 text-muted">Amount:</dt>
+                        <dd class="col-sm-8 fw-bold text-danger">₹@Model.Amount</dd>
+
+                        <dt class="col-sm-4 text-muted">Status:</dt>
+                        <dd class="col-sm-8">@(Model.IsPaid ? "Paid" : "Pending")</dd>
+                    </dl>
+
+                    <hr class="my-4" />
+
+                    <form asp-action="Delete" asp-route-id="@Model.Id">
+                        <input type="hidden" asp-for="Id" />
+                        <div class="d-flex gap-2 justify-content-end">
+                            <a asp-action="Index" class="btn btn-light border px-4">Cancel</a>
+                            <button type="submit" class="btn btn-danger px-4">
+                                <i class="bi bi-trash me-1"></i> Delete
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
