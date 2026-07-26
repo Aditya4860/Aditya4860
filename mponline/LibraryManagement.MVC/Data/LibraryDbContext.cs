@@ -15,6 +15,8 @@ namespace LibraryManagement.MVC.Data
         public DbSet<Librarian> Librarians { get; set; }
         public DbSet<BorrowRecord> BorrowRecords { get; set; }
         public DbSet<Fine> Fines { get; set; }
+        public DbSet<Magazine> Magazines { get; set; }
+        public DbSet<Newspaper> Newspapers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

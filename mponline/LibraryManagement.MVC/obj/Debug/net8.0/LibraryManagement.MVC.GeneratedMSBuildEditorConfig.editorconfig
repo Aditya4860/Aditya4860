@@ -63,12 +63,20 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZXNcRGVsZXRlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Code/mponline/LibraryManagement.MVC/Views/Fines/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZXNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Code/mponline/LibraryManagement.MVC/Views/Fines/Edit.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZXNcRWRpdC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/mponline/LibraryManagement.MVC/Views/Fines/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRmluZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/mponline/LibraryManagement.MVC/Views/Home/Index.cshtml]
@@ -95,6 +103,46 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTGlicmFyaWFuXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Code/mponline/LibraryManagement.MVC/Views/Magazines/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYXppbmVzXENyZWF0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Magazines/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYXppbmVzXERlbGV0ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Magazines/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYXppbmVzXERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Magazines/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYXppbmVzXEVkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Magazines/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWFnYXppbmVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Newspapers/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c3BhcGVyc1xDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Newspapers/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c3BhcGVyc1xEZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Newspapers/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c3BhcGVyc1xEZXRhaWxzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Newspapers/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c3BhcGVyc1xFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Newspapers/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTmV3c3BhcGVyc1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Code/mponline/LibraryManagement.MVC/Views/Publications/Create.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGljYXRpb25zXENyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -111,12 +159,80 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUHVibGljYXRpb25zXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xCb29rcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/BooksPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xCb29rc1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/BorrowHistory.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xCb3Jyb3dIaXN0b3J5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/BorrowHistoryPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xCb3Jyb3dIaXN0b3J5UHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Fines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xGaW5lcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/FinesPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xGaW5lc1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Librarians.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xMaWJyYXJpYW5zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/LibrariansPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xMaWJyYXJpYW5zUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Magazines.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xNYWdhemluZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/MagazinesPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xNYWdhemluZXNQcmludC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Newspapers.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xOZXdzcGFwZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/NewspapersPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xOZXdzcGFwZXJzUHJpbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/Students.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xTdHVkZW50cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Reports/StudentsPrint.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVwb3J0c1xTdHVkZW50c1ByaW50LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Code/mponline/LibraryManagement.MVC/Views/Search/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2VhcmNoXEluZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/mponline/LibraryManagement.MVC/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Shared/_PrintLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9QcmludExheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Code/mponline/LibraryManagement.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Code/mponline/LibraryManagement.MVC/Views/Student/Create.cshtml]

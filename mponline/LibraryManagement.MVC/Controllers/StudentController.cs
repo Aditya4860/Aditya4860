@@ -19,23 +19,18 @@ namespace LibraryManagement.MVC.Controllers
         }
 
         // GET: Student
-        public async Task<IActionResult> Index(string searchName, string searchEmail, string searchPhone, int page = 1)
+        public async Task<IActionResult> Index(string searchQuery, int page = 1)
         {
             var query = _context.Students.AsQueryable();
 
-            if (!string.IsNullOrEmpty(searchName))
+            if (!string.IsNullOrEmpty(searchQuery))
             {
-                query = query.Where(s => s.Name.Contains(searchName));
-            }
-
-            if (!string.IsNullOrEmpty(searchEmail))
-            {
-                query = query.Where(s => s.Email != null && s.Email.Contains(searchEmail));
-            }
-
-            if (!string.IsNullOrEmpty(searchPhone))
-            {
-                query = query.Where(s => s.Phone != null && s.Phone.Contains(searchPhone));
+                query = query.Where(s => 
+                    s.Name.Contains(searchQuery) || 
+                    s.EnrollmentNo.Contains(searchQuery) ||
+                    (s.Email != null && s.Email.Contains(searchQuery)) || 
+                    (s.Phone != null && s.Phone.Contains(searchQuery))
+                );
             }
 
             int pageSize = 5;
@@ -57,9 +52,7 @@ namespace LibraryManagement.MVC.Controllers
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize,
-                SearchName = searchName,
-                SearchEmail = searchEmail,
-                SearchPhone = searchPhone
+                SearchQuery = searchQuery
             };
 
             return View(viewModel);

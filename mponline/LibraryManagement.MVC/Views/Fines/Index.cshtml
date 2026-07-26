@@ -12,6 +12,36 @@
 </div>
 
 <main class="container page-wrapper">
+    <!-- Dashboard Cards for Fines -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 bg-danger text-white h-100">
+                <div class="card-body p-4 d-flex align-items-center">
+                    <div class="me-3">
+                        <i class="bi bi-exclamation-circle-fill display-4 text-white opacity-75"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-uppercase fw-bold mb-1 opacity-75">Pending Fine</h6>
+                        <h2 class="mb-0 fw-bold">₹@Model.TotalPendingFine.ToString("0.00")</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card shadow-sm border-0 bg-success text-white h-100">
+                <div class="card-body p-4 d-flex align-items-center">
+                    <div class="me-3">
+                        <i class="bi bi-check-circle-fill display-4 text-white opacity-75"></i>
+                    </div>
+                    <div>
+                        <h6 class="text-uppercase fw-bold mb-1 opacity-75">Collected Fine</h6>
+                        <h2 class="mb-0 fw-bold">₹@Model.TotalCollectedFine.ToString("0.00")</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Toolbar -->
     <div class="card mb-4">
         <div class="card-body p-3">
@@ -22,8 +52,8 @@
                 <div class="col-md-3">
                     <select name="filterStatus" class="form-select">
                         <option value="all" selected="@(Model.FilterStatus == "all" || string.IsNullOrEmpty(Model.FilterStatus))">All Fines</option>
-                        <option value="pending" selected="@(Model.FilterStatus == "pending")">Pending</option>
-                        <option value="paid" selected="@(Model.FilterStatus == "paid")">Paid</option>
+                        <option value="Pending" selected="@(Model.FilterStatus == "Pending")">Pending</option>
+                        <option value="Paid" selected="@(Model.FilterStatus == "Paid")">Paid</option>
                     </select>
                 </div>
                 <div class="col-md-3 d-flex gap-2">
@@ -34,14 +64,15 @@
         </div>
     </div>
 
-    <!-- Fine Table -->
-    <div class="table-wrapper border shadow-sm mb-5">
+    <!-- Fine History Table -->
+    <div class="table-responsive table-wrapper border shadow-sm mb-5">
         <table class="table table-hover align-middle mb-0">
             <thead class="table-light">
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Student</th>
-                    <th scope="col">Book</th>
+                    <th scope="col">Reason</th>
+                    <th scope="col">Generated Date</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Status</th>
                     <th scope="col" class="text-center">Actions</th>
@@ -51,7 +82,7 @@
                 @if (!Model.Fines.Any())
                 {
                     <tr>
-                        <td colspan="6" class="table-no-results py-5 text-center">
+                        <td colspan="7" class="table-no-results py-5 text-center">
                             <i class="bi bi-check2-circle fs-2 d-block mb-3 text-success"></i>
                             <p class="mb-0 fw-bold">No fines found matching your criteria.</p>
                         </td>
@@ -62,17 +93,19 @@
                     foreach (var fine in Model.Fines)
                     {
                         <tr>
-                            <td class="text-muted fw-bold">@fine.Id</td>
+                            <td class="text-muted fw-bold">@fine.FineId</td>
                             <td>
                                 <div class="fw-bold text-dark">@fine.Student?.Name</div>
-                                <small class="text-muted">@fine.Student?.EnrollmentNo</small>
+                                <small class="text-muted">Borrow ID: @fine.BorrowId</small>
                             </td>
-                            <td class="text-secondary">@fine.BorrowRecord?.Book?.Title</td>
+                            <td class="text-secondary">@fine.Reason</td>
+                            <td>@fine.GeneratedDate.ToShortDateString()</td>
                             <td><strong class="text-danger">₹@fine.Amount</strong></td>
                             <td>
-                                @if (fine.IsPaid)
+                                @if (fine.Status == "Paid")
                                 {
                                     <span class="badge bg-success">Paid</span>
+                                    <br><small class="text-muted" style="font-size: 0.7em;">@fine.PaidDate?.ToShortDateString()</small>
                                 }
                                 else
                                 {
@@ -81,18 +114,18 @@
                             </td>
                             <td class="text-center">
                                 <div class="btn-group btn-group-sm">
-                                    @if (!fine.IsPaid)
+                                    @if (fine.Status == "Pending")
                                     {
-                                        <form asp-action="MarkPaid" asp-route-id="@fine.Id" method="post" style="display:inline;">
+                                        <form asp-action="MarkPaid" asp-route-id="@fine.FineId" method="post" style="display:inline;">
                                             <button type="submit" class="btn btn-outline-success fw-bold me-1" title="Mark Paid">
                                                 <i class="bi bi-currency-rupee"></i> Pay
                                             </button>
                                         </form>
                                     }
-                                    <a asp-action="Edit" asp-route-id="@fine.Id" class="btn btn-success" title="Edit">
+                                    <a asp-action="Edit" asp-route-id="@fine.FineId" class="btn btn-success" title="Edit">
                                         <i class="bi bi-pencil"></i>
                                     </a>
-                                    <a asp-action="Delete" asp-route-id="@fine.Id" class="btn btn-danger" title="Delete">
+                                    <a asp-action="Delete" asp-route-id="@fine.FineId" class="btn btn-danger" title="Delete">
                                         <i class="bi bi-trash"></i>
                                     </a>
                                 </div>

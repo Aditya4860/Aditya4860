@@ -8,9 +8,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 // Database Configuration
-// Using InMemory database by default so the project runs perfectly out of the box without SQL Server configuration
+// Using SQLite for persistent storage so borrow records survive application restarts
 builder.Services.AddDbContext<LibraryDbContext>(options =>
-    options.UseInMemoryDatabase("LibraryManagementDb"));
+    options.UseSqlite("Data Source=library.db"));
 
 // Authentication Configuration
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

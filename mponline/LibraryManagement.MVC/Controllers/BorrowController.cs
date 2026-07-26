@@ -100,6 +100,18 @@ namespace LibraryManagement.MVC.Controllers
             {
                 ModelState.AddModelError("", "You cannot select both a Book and a Publication in a single record.");
             }
+            if (model.LibrarianId == null || model.LibrarianId == 0)
+            {
+                ModelState.AddModelError("LibrarianId", "Please select an issuing librarian.");
+            }
+            if (model.BorrowDate == default)
+            {
+                ModelState.AddModelError("BorrowDate", "Please enter a valid borrow date.");
+            }
+            if (model.DueDate == default || model.DueDate <= model.BorrowDate)
+            {
+                ModelState.AddModelError("DueDate", "Due date must be after the borrow date.");
+            }
 
             if (ModelState.IsValid)
             {
@@ -118,6 +130,11 @@ namespace LibraryManagement.MVC.Controllers
                     var book = await _context.Books.FindAsync(model.BookId);
                     if (book != null)
                     {
+                        if (book.AvailableCopies <= 0)
+                        {
+                            ModelState.AddModelError("BookId", "This book has no available copies.");
+                            goto ValidationFailed;
+                        }
                         book.AvailableCopies--;
                         book.IsAvailable = book.AvailableCopies > 0;
                     }
@@ -130,9 +147,11 @@ namespace LibraryManagement.MVC.Controllers
 
                 _context.BorrowRecords.Add(record);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = "Book issued successfully!";
                 return RedirectToAction(nameof(Index));
             }
 
+            ValidationFailed:
             model.StudentsList = new SelectList(_context.Students, "Id", "Name", model.StudentId);
             model.AvailableBooksList = new SelectList(_context.Books.Where(b => b.IsAvailable), "Id", "Title", model.BookId);
             model.AvailablePublicationsList = new SelectList(_context.Publications.Where(p => p.IsAvailable), "Id", "Title", model.PublicationId);
@@ -170,11 +189,12 @@ namespace LibraryManagement.MVC.Controllers
                     var fineAmount = (decimal)(diffDays * 10);
                     _context.Fines.Add(new Fine
                     {
-                        BorrowRecordId = record.Id,
+                        BorrowId = record.Id,
                         StudentId = record.StudentId,
                         Amount = fineAmount,
-                        DueDate = DateTime.Today.AddDays(7),
-                        IsPaid = false
+                        Reason = "Late Return",
+                        GeneratedDate = DateTime.Today,
+                        Status = "Pending"
                     });
                 }
 

@@ -13,7 +13,7 @@ namespace LibraryManagement.MVC.ViewModels
         public int PageSize { get; set; } = 5;
 
         // Search parameters
-        public string SearchTitle { get; set; }
+        public string SearchQuery { get; set; }
         public PublicationType? FilterType { get; set; }
     }
 }

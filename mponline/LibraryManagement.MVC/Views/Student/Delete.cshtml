@@ -6,33 +6,56 @@
 
 <div class="page-header">
     <div class="container">
-        <h1><i class="bi bi-trash text-danger me-2"></i>Delete Student</h1>
-        <p class="text-danger fw-bold">Are you sure you want to delete this student? This action cannot be undone.</p>
+        <h1><i class="bi bi-trash3 me-2"></i>Delete Student</h1>
+        <p>This action is permanent and cannot be reversed.</p>
     </div>
 </div>
 
 <main class="container page-wrapper">
-    <div class="card shadow-sm border-danger col-md-8 mx-auto">
-        <div class="card-body p-4">
-            <h4 class="card-title mb-4">@Model.Name</h4>
-            
-            <dl class="row mb-0">
-                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.EnrollmentNo)</dt>
-                <dd class="col-sm-8 fw-bold">@Html.DisplayFor(model => model.EnrollmentNo)</dd>
+    <div class="row justify-content-center">
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-md">
+                <div class="card-body p-5 text-center">
+                    <div class="confirm-icon danger mx-auto mb-4">
+                        <i class="bi bi-exclamation-triangle-fill"></i>
+                    </div>
+                    <h4 class="fw-bold mb-1">Delete "@Model.Name"?</h4>
+                    <p class="text-muted mb-4">This student and all associated borrow records will be <strong class="text-danger">permanently deleted</strong>. This action cannot be undone.</p>
 
-                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Department)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.Department)</dd>
-                
-                <dt class="col-sm-4 text-muted">@Html.DisplayNameFor(model => model.Semester)</dt>
-                <dd class="col-sm-8">@Html.DisplayFor(model => model.Semester)</dd>
-            </dl>
-        </div>
-        <div class="card-footer bg-white p-4 d-flex justify-content-between">
-            <a asp-action="Index" class="btn btn-secondary"><i class="bi bi-arrow-left"></i> Cancel</a>
-            <form asp-action="Delete" asp-route-id="@Model.Id">
-                <input type="hidden" asp-for="Id" />
-                <button type="submit" class="btn btn-danger"><i class="bi bi-trash"></i> Delete Student</button>
-            </form>
+                    <div class="bg-light rounded-3 p-4 text-start mb-5">
+                        <div class="row g-3">
+                            <div class="col-sm-6">
+                                <span class="detail-label"><i class="bi bi-card-text me-1"></i>Enrollment No</span>
+                                <div class="detail-value mb-0"><code>@Model.EnrollmentNo</code></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="detail-label"><i class="bi bi-building me-1"></i>Department</span>
+                                <div class="detail-value mb-0">@Model.Department</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="detail-label"><i class="bi bi-layers me-1"></i>Semester</span>
+                                <div class="detail-value mb-0">Semester @Model.Semester</div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="detail-label"><i class="bi bi-envelope me-1"></i>Email</span>
+                                <div class="detail-value mb-0">@Model.Email</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-center gap-3">
+                        <a asp-action="Index" class="btn btn-secondary px-4">
+                            <i class="bi bi-arrow-left me-1"></i> Cancel
+                        </a>
+                        <form asp-action="Delete" asp-route-id="@Model.Id" data-loading="Deleting student…">
+                            <input type="hidden" asp-for="Id" />
+                            <button type="submit" class="btn btn-danger px-4 fw-bold">
+                                <i class="bi bi-trash3 me-1"></i> Yes, Delete Student
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

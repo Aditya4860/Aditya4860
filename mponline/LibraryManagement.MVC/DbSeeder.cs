@@ -127,11 +127,12 @@ namespace LibraryManagement.MVC
                         var diffDays = (record.ReturnDate.Value - dueDate).TotalDays;
                         context.Fines.Add(new Fine
                         {
-                            BorrowRecordId = record.Id,
+                            BorrowId = record.Id,
                             StudentId = record.StudentId,
                             Amount = (decimal)(diffDays * 10),
-                            DueDate = record.ReturnDate.Value.AddDays(7),
-                            IsPaid = false
+                            GeneratedDate = record.ReturnDate.Value,
+                            Status = "Pending",
+                            Reason = "Late Return"
                         });
                     }
                 }
@@ -152,11 +153,12 @@ namespace LibraryManagement.MVC
                 // Assign fine for forcedRecord
                 context.Fines.Add(new Fine
                 {
-                    BorrowRecordId = forcedRecord.Id,
+                    BorrowId = forcedRecord.Id,
                     StudentId = forcedRecord.StudentId,
                     Amount = 150m,
-                    DueDate = DateTime.Today.AddDays(-8),
-                    IsPaid = false
+                    GeneratedDate = DateTime.Today.AddDays(-8),
+                    Status = "Pending",
+                    Reason = "Late Return"
                 });
 
                 context.SaveChanges();

@@ -19,26 +19,18 @@ namespace LibraryManagement.MVC.Controllers
         }
 
         // GET: Books
-        public async Task<IActionResult> Index(string searchTitle, string searchAuthor, string searchISBN, int page = 1)
+        public async Task<IActionResult> Index(string searchQuery, int page = 1)
         {
             var query = _context.Books.AsQueryable();
 
-            // Search by Title
-            if (!string.IsNullOrEmpty(searchTitle))
+            if (!string.IsNullOrEmpty(searchQuery))
             {
-                query = query.Where(b => b.Title.Contains(searchTitle));
-            }
-
-            // Search by Author
-            if (!string.IsNullOrEmpty(searchAuthor))
-            {
-                query = query.Where(b => b.Author.Contains(searchAuthor));
-            }
-
-            // Search by ISBN
-            if (!string.IsNullOrEmpty(searchISBN))
-            {
-                query = query.Where(b => b.ISBN.Contains(searchISBN));
+                query = query.Where(b => 
+                    b.Title.Contains(searchQuery) || 
+                    b.Author.Contains(searchQuery) || 
+                    b.ISBN.Contains(searchQuery) ||
+                    (b.Category != null && b.Category.Contains(searchQuery))
+                );
             }
 
             // Pagination (5 records per page)
@@ -61,9 +53,7 @@ namespace LibraryManagement.MVC.Controllers
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize,
-                SearchTitle = searchTitle,
-                SearchAuthor = searchAuthor,
-                SearchISBN = searchISBN
+                SearchQuery = searchQuery
             };
 
             return View(viewModel);

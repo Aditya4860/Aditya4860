@@ -26,8 +26,8 @@
                     <span class="fw-bold"><i class="bi bi-box-arrow-right text-primary fs-5 me-2"></i>New Borrow Record</span>
                 </div>
                 <div class="card-body">
-                    <form asp-action="Create">
-                        <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    <form asp-action="Create" method="post">
+                        <div asp-validation-summary="All" class="alert alert-danger mb-3"></div>
                         
                         <div class="mb-4">
                             <label asp-for="StudentId" class="form-label fw-bold">Student <span class="text-danger">*</span></label>
@@ -87,6 +87,10 @@
                     </form>
                 </div>
             </div>
-        </div>
     </div>
+  </div>
 </main>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

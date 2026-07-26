@@ -29,6 +29,6 @@ namespace LibraryManagement.MVC.Models
 
         public bool IsAvailable { get; set; } = true;
         
-        public string Status => IsAvailable ? "Available" : "Checked Out";
+        public string Status => IsAvailable ? "Available" : "Issued";
     }
 }

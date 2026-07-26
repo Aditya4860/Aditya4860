@@ -67,52 +67,58 @@
 <body>
 
     <div class="login-card">
-        <div class="login-header">
-            <div class="brand-icon">
+        <div class="login-header text-center">
+            <div class="brand-icon d-inline-block bg-white text-primary rounded-circle p-3 mb-3 shadow-sm" style="width: 80px; height: 80px; line-height: 50px;">
                 <i class="bi bi-book-half"></i>
             </div>
-            <h3 class="fw-bold mb-0">LibraryMS</h3>
-            <p class="text-white-50 mb-0 small">Admin Portal Login</p>
+            <h3 class="fw-bold mb-1">Central Library</h3>
+            <p class="text-white-50 mb-0 small text-uppercase fw-bold letter-spacing-1">Secure Login Portal</p>
         </div>
         
         <div class="login-body">
             <form asp-action="Login" asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
                 
-                <div asp-validation-summary="ModelOnly" class="alert alert-danger p-2 small mb-4 rounded-3 border-0"></div>
+                <div asp-validation-summary="ModelOnly" class="alert alert-danger p-2 small mb-4 rounded-3 border-0 bg-danger bg-opacity-10 text-danger fw-bold text-center"></div>
 
                 <div class="mb-4">
-                    <label asp-for="Email" class="form-label fw-bold text-secondary">Email Address</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
-                        <input asp-for="Email" class="form-control border-start-0 ps-0 bg-light" placeholder="admin@library.com" required autofocus />
+                    <label asp-for="Email" class="form-label fw-bold text-secondary">Email Address / Username</label>
+                    <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden">
+                        <span class="input-group-text bg-white border-end-0 text-primary"><i class="bi bi-person-fill"></i></span>
+                        <input asp-for="Email" class="form-control border-start-0 ps-0 text-dark fw-500" placeholder="e.g. admin@library.com" required autofocus />
                     </div>
-                    <span asp-validation-for="Email" class="text-danger small mt-1 d-block"></span>
+                    <span asp-validation-for="Email" class="text-danger small mt-1 d-block fw-bold"></span>
                 </div>
 
                 <div class="mb-4">
                     <label asp-for="Password" class="form-label fw-bold text-secondary">Password</label>
-                    <div class="input-group">
-                        <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
-                        <input asp-for="Password" class="form-control border-start-0 ps-0 bg-light" placeholder="••••••••" required />
+                    <div class="input-group input-group-lg shadow-sm rounded-3 overflow-hidden">
+                        <span class="input-group-text bg-white border-end-0 text-primary"><i class="bi bi-lock-fill"></i></span>
+                        <input asp-for="Password" class="form-control border-start-0 ps-0 text-dark fw-500" placeholder="••••••••" required />
                     </div>
-                    <span asp-validation-for="Password" class="text-danger small mt-1 d-block"></span>
+                    <span asp-validation-for="Password" class="text-danger small mt-1 d-block fw-bold"></span>
                 </div>
 
-                <div class="mb-4 d-flex justify-content-between align-items-center">
-                    <div class="form-check">
-                        <input asp-for="RememberMe" class="form-check-input" />
-                        <label asp-for="RememberMe" class="form-check-label text-secondary small">Remember me</label>
+                <div class="mb-4 d-flex justify-content-between align-items-center px-1">
+                    <div class="form-check form-switch">
+                        <input asp-for="RememberMe" class="form-check-input" type="checkbox" role="switch" />
+                        <label asp-for="RememberMe" class="form-check-label text-secondary small fw-bold">Remember me</label>
                     </div>
-                    <a href="#" class="text-decoration-none small text-primary fw-bold">Forgot Password?</a>
+                    <a href="#" class="text-decoration-none small text-primary fw-bold hover-primary">Forgot Password?</a>
                 </div>
 
-                <button type="submit" class="btn btn-primary w-100 d-flex justify-content-center align-items-center gap-2">
+                <button type="submit" class="btn btn-primary btn-lg w-100 d-flex justify-content-center align-items-center gap-2 shadow-sm rounded-3 fw-bold mt-2">
                     <span>Sign In</span>
-                    <i class="bi bi-box-arrow-in-right"></i>
+                    <i class="bi bi-arrow-right-circle-fill"></i>
                 </button>
                 
-                <div class="text-center mt-4">
-                    <p class="text-muted small mb-0">Demo Credentials: <strong>admin@library.com</strong> / <strong>admin</strong></p>
+                <div class="mt-5 border-top pt-4">
+                    <p class="text-muted small fw-bold text-center mb-3 text-uppercase">Demo Accounts</p>
+                    <div class="row g-2 small text-center text-secondary">
+                        <div class="col-6"><strong>admin@library.com</strong><br/>(admin)</div>
+                        <div class="col-6"><strong>librarian@library.com</strong><br/>(librarian)</div>
+                        <div class="col-6 mt-3"><strong>student@library.com</strong><br/>(student)</div>
+                        <div class="col-6 mt-3"><strong>guest@library.com</strong><br/>(guest)</div>
+                    </div>
                 </div>
             </form>
         </div>

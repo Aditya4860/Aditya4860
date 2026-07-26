@@ -32,14 +32,13 @@ namespace LibraryManagement.MVC.Controllers
             {
                 query = query.Where(f => 
                     f.Student.Name.Contains(searchQuery) ||
-                    f.BorrowRecord.Book.Title.Contains(searchQuery)
+                    (f.BorrowRecord.Book != null && f.BorrowRecord.Book.Title.Contains(searchQuery))
                 );
             }
 
             if (!string.IsNullOrEmpty(filterStatus) && filterStatus != "all")
             {
-                bool isPaid = filterStatus == "paid";
-                query = query.Where(f => f.IsPaid == isPaid);
+                query = query.Where(f => f.Status == filterStatus);
             }
 
             int pageSize = 5;
@@ -50,10 +49,12 @@ namespace LibraryManagement.MVC.Controllers
             if (page > totalPages && totalPages > 0) page = totalPages;
 
             var paged = await query
-                .OrderByDescending(f => f.DueDate)
+                .OrderByDescending(f => f.GeneratedDate)
                 .Skip((page - 1) * pageSize)
                 .Take(pageSize)
                 .ToListAsync();
+
+            var allFines = await _context.Fines.ToListAsync();
 
             var viewModel = new FineIndexViewModel
             {
@@ -62,7 +63,9 @@ namespace LibraryManagement.MVC.Controllers
                 TotalPages = totalPages,
                 PageSize = pageSize,
                 SearchQuery = searchQuery,
-                FilterStatus = filterStatus
+                FilterStatus = filterStatus,
+                TotalPendingFine = allFines.Where(f => f.Status == "Pending").Sum(f => f.Amount),
+                TotalCollectedFine = allFines.Where(f => f.Status == "Paid").Sum(f => f.Amount)
             };
 
             return View(viewModel);
@@ -71,7 +74,7 @@ namespace LibraryManagement.MVC.Controllers
         // GET: Fines/Create
         public IActionResult Create()
         {
-            ViewData["BorrowRecordId"] = new SelectList(_context.BorrowRecords.Include(b => b.Book), "Id", "Id");
+            ViewData["BorrowId"] = new SelectList(_context.BorrowRecords.Include(b => b.Book), "Id", "Id");
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Name");
             return View();
         }
@@ -81,15 +84,17 @@ namespace LibraryManagement.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Fine fine)
         {
-            ModelState.Remove("Id");
-            ModelState.Remove("IsPaid");
+            ModelState.Remove("FineId");
             if (ModelState.IsValid)
             {
+                if (string.IsNullOrEmpty(fine.Status)) fine.Status = "Pending";
+                if (fine.GeneratedDate == default) fine.GeneratedDate = DateTime.Today;
+
                 _context.Add(fine);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BorrowRecordId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowRecordId);
+            ViewData["BorrowId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Name", fine.StudentId);
             return View(fine);
         }
@@ -102,7 +107,7 @@ namespace LibraryManagement.MVC.Controllers
             var fine = await _context.Fines.FindAsync(id);
             if (fine == null) return NotFound();
 
-            ViewData["BorrowRecordId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowRecordId);
+            ViewData["BorrowId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Name", fine.StudentId);
             return View(fine);
         }
@@ -112,10 +117,9 @@ namespace LibraryManagement.MVC.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, Fine fine)
         {
-            if (id != fine.Id) return NotFound();
+            if (id != fine.FineId) return NotFound();
 
-            ModelState.Remove("Id");
-            ModelState.Remove("IsPaid");
+            ModelState.Remove("FineId");
 
             if (ModelState.IsValid)
             {
@@ -124,23 +128,26 @@ namespace LibraryManagement.MVC.Controllers
                     var existing = await _context.Fines.FindAsync(id);
                     if (existing == null) return NotFound();
 
-                    existing.BorrowRecordId = fine.BorrowRecordId;
+                    existing.BorrowId = fine.BorrowId;
                     existing.StudentId = fine.StudentId;
                     existing.Amount = fine.Amount;
-                    existing.DueDate = fine.DueDate;
+                    existing.Reason = fine.Reason;
+                    existing.GeneratedDate = fine.GeneratedDate;
+                    existing.PaidDate = fine.PaidDate;
+                    existing.Status = fine.Status;
 
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!FineExists(fine.Id))
+                    if (!FineExists(fine.FineId))
                         return NotFound();
                     else
                         throw;
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["BorrowRecordId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowRecordId);
+            ViewData["BorrowId"] = new SelectList(_context.BorrowRecords, "Id", "Id", fine.BorrowId);
             ViewData["StudentId"] = new SelectList(_context.Students, "Id", "Name", fine.StudentId);
             return View(fine);
         }
@@ -151,9 +158,10 @@ namespace LibraryManagement.MVC.Controllers
         public async Task<IActionResult> MarkPaid(int id)
         {
             var fine = await _context.Fines.FindAsync(id);
-            if (fine != null && !fine.IsPaid)
+            if (fine != null && fine.Status != "Paid")
             {
-                fine.IsPaid = true;
+                fine.Status = "Paid";
+                fine.PaidDate = DateTime.Today;
                 await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
@@ -167,7 +175,7 @@ namespace LibraryManagement.MVC.Controllers
             var fine = await _context.Fines
                 .Include(f => f.BorrowRecord)
                 .Include(f => f.Student)
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.FineId == id);
             if (fine == null) return NotFound();
 
             return View(fine);
@@ -189,7 +197,7 @@ namespace LibraryManagement.MVC.Controllers
 
         private bool FineExists(int id)
         {
-            return _context.Fines.Any(e => e.Id == id);
+            return _context.Fines.Any(e => e.FineId == id);
         }
     }
 }

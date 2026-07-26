@@ -19,13 +19,18 @@ namespace LibraryManagement.MVC.Controllers
         }
 
         // GET: Librarian
-        public async Task<IActionResult> Index(string searchName, int page = 1)
+        public async Task<IActionResult> Index(string searchQuery, int page = 1)
         {
             var query = _context.Librarians.AsQueryable();
 
-            if (!string.IsNullOrEmpty(searchName))
+            if (!string.IsNullOrEmpty(searchQuery))
             {
-                query = query.Where(l => l.Name.Contains(searchName));
+                query = query.Where(l => 
+                    l.Name.Contains(searchQuery) || 
+                    l.EmployeeId.Contains(searchQuery) ||
+                    (l.Email != null && l.Email.Contains(searchQuery)) ||
+                    (l.Phone != null && l.Phone.Contains(searchQuery))
+                );
             }
 
             int pageSize = 5;
@@ -47,7 +52,7 @@ namespace LibraryManagement.MVC.Controllers
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize,
-                SearchName = searchName
+                SearchQuery = searchQuery
             };
 
             return View(viewModel);

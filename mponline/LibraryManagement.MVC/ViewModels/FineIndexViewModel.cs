@@ -15,5 +15,9 @@ namespace LibraryManagement.MVC.ViewModels
         // Search parameters
         public string SearchQuery { get; set; }
         public string FilterStatus { get; set; }
+
+        // Dashboard Stats
+        public decimal TotalPendingFine { get; set; }
+        public decimal TotalCollectedFine { get; set; }
     }
 }

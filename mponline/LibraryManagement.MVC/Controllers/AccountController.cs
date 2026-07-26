@@ -25,28 +25,48 @@ namespace LibraryManagement.MVC.Controllers
 
             if (ModelState.IsValid)
             {
-                // Prototype Authentication: Accept admin@library.com / admin
+                string role = "";
+                string name = "";
+
+                // Prototype Authentication Role Mocks
                 if (model.Email == "admin@library.com" && model.Password == "admin")
+                {
+                    role = "Admin";
+                    name = "Admin User";
+                }
+                else if (model.Email == "librarian@library.com" && model.Password == "librarian")
+                {
+                    role = "Librarian";
+                    name = "Librarian User";
+                }
+                else if (model.Email == "student@library.com" && model.Password == "student")
+                {
+                    role = "Student";
+                    name = "Student User";
+                }
+                else if (model.Email == "guest@library.com" && model.Password == "guest")
+                {
+                    role = "Guest";
+                    name = "Guest User";
+                }
+
+                if (!string.IsNullOrEmpty(role))
                 {
                     var claims = new List<Claim>
                     {
-                        new Claim(ClaimTypes.Name, "Admin User"),
+                        new Claim(ClaimTypes.Name, name),
                         new Claim(ClaimTypes.Email, model.Email),
-                        new Claim(ClaimTypes.Role, "Admin")
+                        new Claim(ClaimTypes.Role, role)
                     };
 
-                    var claimsIdentity = new ClaimsIdentity(
-                        claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
                     var authProperties = new AuthenticationProperties
                     {
                         IsPersistent = model.RememberMe
                     };
 
-                    await HttpContext.SignInAsync(
-                        CookieAuthenticationDefaults.AuthenticationScheme, 
-                        new ClaimsPrincipal(claimsIdentity), 
-                        authProperties);
+                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
                     if (!string.IsNullOrEmpty(returnUrl) && Url.IsLocalUrl(returnUrl))
                     {
@@ -54,11 +74,11 @@ namespace LibraryManagement.MVC.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("Index", "Books");
+                        return RedirectToAction("Dashboard", "Home");
                     }
                 }
 
-                ModelState.AddModelError(string.Empty, "Invalid login attempt. (Hint: use admin@library.com / admin)");
+                ModelState.AddModelError(string.Empty, "Invalid login attempt. Check your credentials.");
             }
 
             return View(model);

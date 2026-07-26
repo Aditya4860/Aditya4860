@@ -20,7 +20,7 @@ namespace LibraryManagement.MVC.Controllers
 
         // GET: Publications
         // Supports filtering by type (/Publications?type=Magazine)
-        public async Task<IActionResult> Index(PublicationType? type, string searchTitle, int page = 1)
+        public async Task<IActionResult> Index(PublicationType? type, string searchQuery, int page = 1)
         {
             var query = _context.Publications.AsQueryable();
 
@@ -29,9 +29,12 @@ namespace LibraryManagement.MVC.Controllers
                 query = query.Where(p => p.Type == type.Value);
             }
 
-            if (!string.IsNullOrEmpty(searchTitle))
+            if (!string.IsNullOrEmpty(searchQuery))
             {
-                query = query.Where(p => p.Title.Contains(searchTitle));
+                query = query.Where(p => 
+                    p.Title.Contains(searchQuery) || 
+                    (p.Publisher != null && p.Publisher.Contains(searchQuery))
+                );
             }
 
             int pageSize = 5;
@@ -53,7 +56,7 @@ namespace LibraryManagement.MVC.Controllers
                 CurrentPage = page,
                 TotalPages = totalPages,
                 PageSize = pageSize,
-                SearchTitle = searchTitle,
+                SearchQuery = searchQuery,
                 FilterType = type
             };
 
