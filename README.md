@@ -1,0 +1,332 @@
+<div align="center">
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=180&section=header&text=Aditya%20Jain&fontSize=52&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Software%20Engineer%20%7C%20.NET%20Full%20Stack%20%7C%20FastAPI%20%7C%20Applied%20ML&descSize=16&descAlignY=62&descColor=8b949e&animation=fadeIn" width="100%" />
+
+<p>
+  <a href="https://github.com/Aditya4860"><img src="https://img.shields.io/badge/GitHub-Aditya4860-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
+  <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://img.shields.io/badge/LinkedIn-aditya--jain0315-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn"/></a>
+  <a href="https://leetcode.com/Aditya4860"><img src="https://img.shields.io/badge/LeetCode-Aditya4860-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
+  <a href="mailto:adityaj0315@gmail.com"><img src="https://img.shields.io/badge/Email-adityaj0315@gmail.com-EA4335?style=for-the-badge&logo=gmail" alt="Email"/></a>
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/Monorepo-Architecture-blue?style=flat-square&logo=git" alt="Monorepo Architecture"/>
+  <img src="https://img.shields.io/badge/.NET-8.0_LTS-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 8"/>
+  <img src="https://img.shields.io/badge/FastAPI-Production_Ready-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18"/>
+  <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/>
+</p>
+
+</div>
+
+---
+
+## Overview
+
+Welcome to the engineering monorepo of **Aditya Jain** (Computer Science & Engineering student at **VIT Bhopal University**). This repository houses full-stack web applications, data systems, and technical implementations built with strict adherence to clean architecture, enterprise standards, and performance optimization.
+
+Each core project is fully self-contained with its own independent source code, automated workflows, documentation, and database migrations.
+
+---
+
+## Projects Directory
+
+<table>
+  <thead>
+    <tr>
+      <th>Project</th>
+      <th>Primary Stack</th>
+      <th>Architectural Highlights</th>
+      <th>Status</th>
+      <th>Repository / Docs</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Enterprise Library Management System</strong></td>
+      <td><code>ASP.NET Core MVC 8</code> · <code>EF Core</code> · <code>PostgreSQL</code> · <code>Bootstrap 5</code></td>
+      <td>Role-Based Access Control (Admin/Librarian/Student), automated fine calculation, Chart.js analytics, and 5,000+ realistic seeded records.</td>
+      <td><img src="https://img.shields.io/badge/Production-2ea043?style=flat-square"/></td>
+      <td><a href="./mponline/README.md"><strong>Explore LMS →</strong></a></td>
+    </tr>
+    <tr>
+      <td><strong>Smart Expense Tracker</strong></td>
+      <td><code>FastAPI</code> · <code>React 18</code> · <code>PostgreSQL</code> · <code>Tailwind CSS</code></td>
+      <td>Repository pattern backend with async SQLAlchemy, JWT dual-token auth, rate limiting, sanitization middleware, and 9-context frontend SPA.</td>
+      <td><img src="https://img.shields.io/badge/Production-2ea043?style=flat-square"/></td>
+      <td><a href="./expense-tracker/README.md"><strong>Explore Tracker →</strong></a></td>
+    </tr>
+    <tr>
+      <td><strong>Whisper AI Transcriber</strong></td>
+      <td><code>Python</code> · <code>OpenAI Whisper</code> · <code>FFmpeg</code> · <code>Flask</code></td>
+      <td>GPU-accelerated multi-lingual audio/video transcription service with timestamp generation and subtitle formatting.</td>
+      <td><img src="https://img.shields.io/badge/Completed-2ea043?style=flat-square"/></td>
+      <td><code>python_Projects/</code></td>
+    </tr>
+    <tr>
+      <td><strong>Event Management Platform</strong></td>
+      <td><code>ASP.NET Core MVC</code> · <code>SQL Server</code> · <code>Bootstrap 5</code></td>
+      <td>Multi-tiered event ticketing, registrant management, dynamic scheduling, and administrator approval pipeline.</td>
+      <td><img src="https://img.shields.io/badge/Active-58a6ff?style=flat-square"/></td>
+      <td><code>mponline/</code></td>
+    </tr>
+  </tbody>
+</table>
+
+---
+
+## System Architecture
+
+```mermaid
+graph TD
+    subgraph Monorepo ["Aditya Jain Monorepo"]
+        LMS["mponline/ (LMS)"]
+        EXP["expense-tracker/ (Finance)"]
+        ML["python_Projects/ (ML/AI)"]
+        DSA["java_codes/ (DSA Core)"]
+    end
+
+    subgraph LMS_Stack [".NET 8 Ecosystem"]
+        LMS --> MVC[ASP.NET Core MVC]
+        MVC --> EF[EF Core ORM]
+        EF --> PG_LMS[(PostgreSQL / Supabase)]
+    end
+
+    subgraph EXP_Stack ["Modern Full-Stack"]
+        EXP --> SPA[React 18 + Vite]
+        SPA --> REST[FastAPI REST API v1]
+        REST --> SEC[JWT & Rate Limiting Middleware]
+        SEC --> REPO[Repository Pattern]
+        REPO --> PG_EXP[(PostgreSQL Database)]
+    end
+
+    classDef monorepo fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#fff
+    classDef lms fill:#512BD4,stroke:#fff,color:#fff
+    classDef exp fill:#009688,stroke:#fff,color:#fff
+    class Monorepo monorepo
+    class LMS_Stack lms
+    class EXP_Stack exp
+```
+
+---
+
+## Repository Structure
+
+```text
+.
+├── .github/
+│   ├── ISSUE_TEMPLATE/           # Standardized bug report and feature request templates
+│   └── PULL_REQUEST_TEMPLATE.md  # Comprehensive pull request checklist
+│
+├── mponline/                     # Project 1: Library Management System (.NET 8 MVC)
+│   ├── .github/workflows/        # CI/CD: Automated .NET 8 build and validation
+│   ├── LibraryManagement.MVC/    # Application source code
+│   │   ├── Controllers/          # 12 MVC Controllers (Books, Borrow, Fines, Reports...)
+│   │   ├── Models/               # 9 Domain Entities (Book, Student, Fine, Magazine...)
+│   │   ├── Views/                # Server-rendered Razor views with bespoke design system
+│   │   ├── Data/                 # EF Core DbContext & Database Configurations
+│   │   ├── DbSeeder.cs           # Seed generator (5,000+ books & borrow records)
+│   │   ├── Program.cs            # Middleware pipeline & Dependency Injection container
+│   │   └── .env.example          # Safe environment variable configuration template
+│   ├── docs/                     # 14 high-resolution UI screenshots & Mermaid diagrams
+│   ├── scripts/                  # Data ingestion & diagram generation utilities
+│   ├── CONTRIBUTING.md           # LMS contribution guidelines
+│   ├── LICENSE                   # MIT License
+│   └── README.md                 # Complete technical documentation
+│
+├── expense-tracker/              # Project 2: Smart Expense Tracker (React + FastAPI)
+│   ├── frontend/                 # React 18 Single Page Application
+│   │   ├── src/
+│   │   │   ├── pages/            # 12 route views (Dashboard, Expenses, Income, Budget...)
+│   │   │   ├── components/       # Shared UI component library (Modals, Charts, Skeletons)
+│   │   │   ├── context/          # 9-provider global Context API state tree
+│   │   │   └── hooks/            # Domain-scoped custom React hooks
+│   │   └── package.json
+│   ├── backend/                  # Production-hardened FastAPI backend
+│   │   ├── app/
+│   │   │   ├── api/v1/           # Versioned REST endpoints (Auth, Expenses, Analytics...)
+│   │   │   ├── core/             # Security, rate limiter, input sanitizer, database
+│   │   │   ├── models/           # SQLAlchemy ORM database models
+│   │   │   ├── schemas/          # Pydantic v2 validation schemas
+│   │   │   └── repositories/     # Repository pattern data access layer
+│   │   ├── alembic/              # Database migration version scripts
+│   │   ├── tests/                # Automated pytest security and route test suite
+│   │   ├── main.py               # Application entry point with security middleware stack
+│   │   └── requirements.txt      # Python dependencies
+│   ├── docs/                     # API specification, architectural designs, roadmap
+│   ├── CHANGELOG.md              # Version release notes
+│   ├── LICENSE                   # MIT License
+│   └── README.md                 # Complete technical documentation
+│
+├── python_Projects/              # ML experiments, OpenAI Whisper audio pipelines, Python utilities
+├── java_codes/                   # Data Structures and Algorithms implementations
+├── .gitignore                    # Enterprise multi-stack git exclusions (.NET, Node, Python, Java)
+├── CONTRIBUTING.md               # Monorepo contribution standards & Conventional Commits
+├── CODE_OF_CONDUCT.md            # Contributor Covenant v2.1 standard
+├── SECURITY.md                   # Security vulnerability reporting policy
+├── LICENSE                       # MIT License
+└── README.md                     # Monorepo landing page
+```
+
+---
+
+## Featured Projects Deep Dive
+
+### 1. Enterprise Library Management System (`mponline/`)
+
+[![.NET 8 CI](https://img.shields.io/badge/CI-Passing-2ea043?style=flat-square&logo=githubactions&logoColor=white)](./mponline/.github/workflows/dotnet.yml)
+[![Documentation](https://img.shields.io/badge/Docs-View_LMS_README-blue?style=flat-square)](./mponline/README.md)
+
+A robust web application automating enterprise library operations with multi-role access controls, real-time analytics, and automated fee processing.
+
+#### Key Highlights
+- **RBAC Security**: Dedicated authorization tiers for *Administrator*, *Librarian*, and *Student*.
+- **Book Circulation Engine**: Real-time copy tracking, borrow limits, and overdue fine computing.
+- **Periodicals & Publishers Registry**: Structured management for Magazines, Daily Newspapers, and Publication Houses.
+- **Enterprise Seeder**: Generates over 5,000 book records and realistic borrowing transactions on initial startup.
+
+#### Quick Start (LMS)
+```bash
+# Navigate to project
+cd mponline/LibraryManagement.MVC
+
+# Setup configuration
+cp .env.example .env
+
+# Restore dependencies & run migrations
+dotnet restore
+dotnet ef database update
+
+# Launch local server
+dotnet run
+```
+*Application runs at `https://localhost:5001`.*
+
+#### Demo Credentials
+| Role | Email | Password |
+|---|---|---|
+| Administrator | `admin@libraryspace.com` | `Password123!` |
+| Librarian | `librarian@libraryspace.com` | `Password123!` |
+| Student | `student@libraryspace.com` | `Password123!` |
+
+---
+
+### 2. Smart Expense Tracker (`expense-tracker/`)
+
+[![API Docs](https://img.shields.io/badge/FastAPI-Swagger_UI-009688?style=flat-square&logo=fastapi&logoColor=white)](./expense-tracker/README.md)
+[![Frontend](https://img.shields.io/badge/React-Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](./expense-tracker/README.md)
+
+An end-to-end personal finance platform featuring real-time budgeting, multi-category income/expense logging, and interactive financial health scoring.
+
+#### Key Highlights
+- **Production-Grade Backend**: FastAPI with async SQLAlchemy, Pydantic v2 schemas, and Alembic migrations.
+- **Dual-Token Authentication**: JWT access and refresh tokens with bcrypt password hashing.
+- **Hardened Middleware**: Rate limiting, XSS input sanitization, HSTS, and CSP security headers.
+- **Frontend SPA**: React 18 with 9 Context providers, custom hooks, and Recharts interactive analytics.
+
+#### Quick Start (Expense Tracker)
+```bash
+# 1. Backend Setup
+cd expense-tracker/backend
+python -m venv .venv
+.venv\Scripts\activate          # Windows (or source .venv/bin/activate on Unix)
+pip install -r requirements.txt
+cp .env.example .env
+alembic upgrade head
+uvicorn main:app --reload
+
+# 2. Frontend Setup (New Terminal)
+cd expense-tracker/frontend
+npm install
+npm run dev
+```
+*API docs available at `http://127.0.0.1:8000/docs`. Frontend runs at `http://localhost:5173`.*
+
+---
+
+## Visual Showcase
+
+<div align="center">
+  <table>
+    <tr>
+      <td width="50%">
+        <img src="mponline/docs/screenshots/landing-page.png" alt="LMS Landing Page" />
+        <p align="center"><b>LMS: Modern Landing Page</b></p>
+      </td>
+      <td width="50%">
+        <img src="mponline/docs/screenshots/dashboard1.png" alt="LMS Analytics Dashboard" />
+        <p align="center"><b>LMS: Analytics Dashboard</b></p>
+      </td>
+    </tr>
+    <tr>
+      <td width="50%">
+        <img src="mponline/docs/screenshots/books.png" alt="LMS Catalog" />
+        <p align="center"><b>LMS: Catalog & Filter System</b></p>
+      </td>
+      <td width="50%">
+        <img src="mponline/docs/screenshots/reports.png" alt="LMS Reports" />
+        <p align="center"><b>LMS: Financial & Operational Reports</b></p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
+
+## Skills & Technologies
+
+<div align="center">
+
+| Domain | Core Competencies |
+|---|---|
+| **Backend & Architecture** | ASP.NET Core MVC 8, C#, FastAPI, Python 3.12, REST APIs, Repository Pattern, MVC |
+| **Frontend Engineering** | React 18, Vite 5, JavaScript (ES6+), Razor Pages, Tailwind CSS, Bootstrap 5, Recharts |
+| **Data & Storage** | PostgreSQL, SQL Server, Entity Framework Core, SQLAlchemy (Async), Alembic Migrations |
+| **Security & Quality** | JWT Authentication, Role-Based Access Control, Rate Limiting, Input Sanitization, Pytest |
+| **DevOps & Tooling** | Git, GitHub Actions CI/CD, Visual Studio 2022, VS Code, Postman, Swagger UI |
+
+</div>
+
+---
+
+## GitHub Analytics
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github&include_all_commits=true&count_private=true" height="165"/>
+  &nbsp;&nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&hide=jupyter%20notebook" height="165"/>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=21262d&ring=58a6ff&fire=ff7b72&currStreakLabel=c9d1d9&sideLabels=c9d1d9&dates=8b949e" width="65%"/>
+</div>
+
+---
+
+## Contributing & Standards
+
+We welcome contributions from the open-source community! Please review our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting pull requests.
+
+We enforce **[Conventional Commits](https://www.conventionalcommits.org/)** on all branches:
+- `feat:` New features or capabilities
+- `fix:` Bug fixes and corrections
+- `docs:` Documentation updates
+- `refactor:` Code refactoring without logic modification
+- `perf:` Performance optimizations
+- `ci:` Continuous Integration changes
+
+---
+
+## License
+
+This repository is distributed under the **[MIT License](LICENSE)**.
+
+---
+
+<div align="center">
+  <b>Developed with precision by Aditya Jain</b><br/>
+  <i>Software Engineer · .NET Full Stack · Machine Learning</i><br/><br/>
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=100&section=footer" width="100%"/>
+</div>
