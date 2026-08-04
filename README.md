@@ -194,21 +194,21 @@ npm run dev
   <table>
     <tr>
       <td width="50%">
-        <img src="mponline/docs/screenshots/landing-page.png" alt="LMS Landing Page" />
+        <img src="https://raw.githubusercontent.com/Aditya4860/LMS/main/docs/screenshots/landing-page.png" alt="LMS Landing Page" />
         <p align="center"><b>LMS: Modern Landing Page</b></p>
       </td>
       <td width="50%">
-        <img src="mponline/docs/screenshots/dashboard1.png" alt="LMS Analytics Dashboard" />
+        <img src="https://raw.githubusercontent.com/Aditya4860/LMS/main/docs/screenshots/dashboard1.png" alt="LMS Analytics Dashboard" />
         <p align="center"><b>LMS: Analytics Dashboard</b></p>
       </td>
     </tr>
     <tr>
       <td width="50%">
-        <img src="mponline/docs/screenshots/books.png" alt="LMS Catalog" />
+        <img src="https://raw.githubusercontent.com/Aditya4860/LMS/main/docs/screenshots/books.png" alt="LMS Catalog" />
         <p align="center"><b>LMS: Catalog & Filter System</b></p>
       </td>
       <td width="50%">
-        <img src="mponline/docs/screenshots/reports.png" alt="LMS Reports" />
+        <img src="https://raw.githubusercontent.com/Aditya4860/LMS/main/docs/screenshots/reports.png" alt="LMS Reports" />
         <p align="center"><b>LMS: Financial & Operational Reports</b></p>
       </td>
     </tr>
