@@ -3,10 +3,10 @@
 <img src="https://raw.githubusercontent.com/Aditya4860/Aditya4860/main/assets/profile-banner.png" alt="Aditya Jain Profile Banner" width="100%" />
 
 <p>
-  <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aditya-jain0315" height="32" width="42" /></a>
-  <a href="https://github.com/Aditya4860"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="Aditya4860" height="32" width="42" /></a>
-  <a href="https://leetcode.com/Aditya4860"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="Aditya4860" height="32" width="42" /></a>
-  <a href="mailto:adityaj0315@gmail.com"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/gmail.svg" alt="adityaj0315@gmail.com" height="32" width="42" /></a>
+  <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/></a>
+  <a href="https://github.com/Aditya4860"><img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub"/></a>
+  <a href="https://leetcode.com/Aditya4860"><img src="https://img.shields.io/badge/LeetCode-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
+  <a href="mailto:adityaj0315@gmail.com"><img src="https://img.shields.io/badge/Gmail-EA4335?style=for-the-badge&logo=gmail&logoColor=white" alt="Gmail"/></a>
 </p>
 
 <p>
@@ -54,32 +54,14 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 
 ## 📊 GitHub Stats & Metrics
 
-> *NOTE: Top languages represents a GitHub metric of repositories and technologies across public repositories.*
-
 <div align="center">
   <table border="0">
     <tr>
-      <td>
-        <a href="https://github.com/anuraghazra/github-readme-stats">
-          <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Aditya Jain Top Languages" />
-        </a>
+      <td align="center">
+        <img height="165em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
       </td>
-      <td>
-        <a href="https://github.com/anuraghazra/github-readme-stats">
-          <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=radical&include_all_commits=true&count_private=true&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Aditya Jain GitHub Stats" />
-        </a>
-      </td>
-    </tr>
-    <tr>
-      <td>
-        <a href="https://github.com/Aditya4860/LMS">
-          <img height="120em" src="https://github-readme-stats.vercel.app/api/pin/?username=Aditya4860&repo=LMS&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="LMS Pin" />
-        </a>
-      </td>
-      <td>
-        <a href="https://github.com/Aditya4860/smart-expense-tracker">
-          <img height="120em" src="https://github-readme-stats.vercel.app/api/pin/?username=Aditya4860&repo=smart-expense-tracker&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Smart Expense Tracker Pin" />
-        </a>
+      <td align="center">
+        <img height="165em" src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true" alt="GitHub Stats" />
       </td>
     </tr>
   </table>
@@ -88,7 +70,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=radical&hide_border=true&background=0d1117&ring=ff2a5f&fire=ff2a5f&currStreakLabel=ffffff&sideLabels=ffffff&dates=8b949e" width="65%"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=tokyonight&hide_border=true" width="65%"/>
 </div>
 
 ---
