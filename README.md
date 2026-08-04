@@ -3,10 +3,10 @@
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=180&section=header&text=Aditya%20Jain&fontSize=50&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Software%20Engineer%20%7C%20Full%20Stack%20%7C%20AI%20%26%20ML%20%7C%20Data%20Science&descSize=15&descAlignY=62&descColor=8b949e&animation=fadeIn" width="100%" />
 
 <p>
-  <a href="https://github.com/Aditya4860"><img src="https://img.shields.io/badge/GitHub-Aditya4860-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
-  <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://img.shields.io/badge/LinkedIn-aditya--jain0315-0A66C2?style=for-the-badge&logo=linkedin" alt="LinkedIn"/></a>
-  <a href="https://leetcode.com/Aditya4860"><img src="https://img.shields.io/badge/LeetCode-Aditya4860-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="LeetCode"/></a>
-  <a href="mailto:adityaj0315@gmail.com"><img src="https://img.shields.io/badge/Email-adityaj0315@gmail.com-EA4335?style=for-the-badge&logo=gmail" alt="Email"/></a>
+  <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aditya-jain0315" height="32" width="42" /></a>
+  <a href="https://github.com/Aditya4860"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/github.svg" alt="Aditya4860" height="32" width="42" /></a>
+  <a href="https://leetcode.com/Aditya4860"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="Aditya4860" height="32" width="42" /></a>
+  <a href="mailto:adityaj0315@gmail.com"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/gmail.svg" alt="adityaj0315@gmail.com" height="32" width="42" /></a>
 </p>
 
 <p>
@@ -52,18 +52,43 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 
 ---
 
-## 📊 GitHub Analytics & Activity
+## 📊 GitHub Stats & Metrics
+
+> *NOTE: Top languages represents a GitHub metric of repositories and technologies across public repositories.*
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github&include_all_commits=true&count_private=true" height="165"/>
-  &nbsp;&nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&hide=jupyter%20notebook" height="165"/>
+  <table border="0">
+    <tr>
+      <td>
+        <a href="https://github.com/anuraghazra/github-readme-stats">
+          <img height="180em" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Aditya Jain Top Languages" />
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/anuraghazra/github-readme-stats">
+          <img height="180em" src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=radical&include_all_commits=true&count_private=true&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Aditya Jain GitHub Stats" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="https://github.com/Aditya4860/LMS">
+          <img height="120em" src="https://github-readme-stats.vercel.app/api/pin/?username=Aditya4860&repo=LMS&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="LMS Pin" />
+        </a>
+      </td>
+      <td>
+        <a href="https://github.com/Aditya4860/smart-expense-tracker">
+          <img height="120em" src="https://github-readme-stats.vercel.app/api/pin/?username=Aditya4860&repo=smart-expense-tracker&theme=radical&hide_border=true&title_color=ff2a5f&text_color=ffffff&bg_color=0d1117" alt="Smart Expense Tracker Pin" />
+        </a>
+      </td>
+    </tr>
+  </table>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=21262d&ring=58a6ff&fire=ff7b72&currStreakLabel=c9d1d9&sideLabels=c9d1d9&dates=8b949e" width="65%"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=radical&hide_border=true&background=0d1117&ring=ff2a5f&fire=ff2a5f&currStreakLabel=ffffff&sideLabels=ffffff&dates=8b949e" width="65%"/>
 </div>
 
 ---
