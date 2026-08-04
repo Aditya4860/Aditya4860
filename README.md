@@ -273,17 +273,13 @@ npm run dev
 
 ---
 
-## Skills & Technologies
+## 🛠 Languages & Tools
 
 <div align="center">
 
-| Domain | Core Competencies |
-|---|---|
-| **Backend & Architecture** | ASP.NET Core MVC 8, C#, FastAPI, Python 3.12, REST APIs, Repository Pattern, MVC |
-| **Frontend Engineering** | React 18, Vite 5, JavaScript (ES6+), Razor Pages, Tailwind CSS, Bootstrap 5, Recharts |
-| **Data & Storage** | PostgreSQL, SQL Server, Entity Framework Core, SQLAlchemy (Async), Alembic Migrations |
-| **Security & Quality** | JWT Authentication, Role-Based Access Control, Rate Limiting, Input Sanitization, Pytest |
-| **DevOps & Tooling** | Git, GitHub Actions CI/CD, Visual Studio 2022, VS Code, Postman, Swagger UI |
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,sklearn,git,github,visualstudio,vscode,postman&theme=dark&perline=7" alt="Languages and Tools" />
+</p>
 
 </div>
 
