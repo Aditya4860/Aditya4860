@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=180&section=header&text=Aditya%20Jain&fontSize=52&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Software%20Engineer%20%7C%20.NET%20Full%20Stack%20%7C%20FastAPI%20%7C%20Applied%20ML&descSize=16&descAlignY=62&descColor=8b949e&animation=fadeIn" width="100%" />
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=180&section=header&text=Aditya%20Jain&fontSize=50&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Software%20Engineer%20%7C%20Full%20Stack%20%7C%20AI%20%26%20ML%20%7C%20Data%20Science&descSize=15&descAlignY=62&descColor=8b949e&animation=fadeIn" width="100%" />
 
 <p>
   <a href="https://github.com/Aditya4860"><img src="https://img.shields.io/badge/GitHub-Aditya4860-181717?style=for-the-badge&logo=github" alt="GitHub"/></a>
@@ -10,9 +10,9 @@
 </p>
 
 <p>
-  <img src="https://img.shields.io/badge/Monorepo-Architecture-blue?style=flat-square&logo=git" alt="Monorepo Architecture"/>
-  <img src="https://img.shields.io/badge/.NET-8.0_LTS-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt=".NET 8"/>
-  <img src="https://img.shields.io/badge/FastAPI-Production_Ready-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI"/>
+  <img src="https://img.shields.io/badge/AI%20%26%20ML-Enthusiast-FF6F00?style=flat-square&logo=pytorch&logoColor=white" alt="AI & ML"/>
+  <img src="https://img.shields.io/badge/Data%20Science-Analytics-3776AB?style=flat-square&logo=python&logoColor=white" alt="Data Science"/>
+  <img src="https://img.shields.io/badge/Full%20Stack-.NET%20%26%20FastAPI-512BD4?style=flat-square&logo=dotnet&logoColor=white" alt="Full Stack"/>
   <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18"/>
   <img src="https://img.shields.io/badge/License-MIT-green?style=flat-square" alt="License"/>
 </p>
@@ -23,9 +23,12 @@
 
 ## 👨‍💻 About Me
 
-Welcome to my portfolio and engineering monorepo. I am **Aditya Jain**, a Computer Science & Engineering student at **VIT Bhopal University** preparing for Software Engineering roles.
+Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer Science & Engineering student at **VIT Bhopal University**, passionate about building scalable, intelligent, and data-driven software solutions.
 
-My technical focus spans backend engineering with **C# / .NET 8** and **Python / FastAPI**, modern frontends with **React 18**, robust data modeling with **PostgreSQL & SQL Server**, and applied Machine Learning.
+- 🤖 **AI & Machine Learning**: Exploring deep learning, NLP, computer vision, and foundation models (OpenAI Whisper, PyTorch, Scikit-learn).
+- 📈 **Data Science & Analytics**: End-to-end data pipelines, predictive modeling, statistical analysis, and interactive dashboard analytics (Pandas, NumPy, Matplotlib, Seaborn).
+- 🌐 **Full-Stack Development**: Scalable backend architectures with **ASP.NET Core MVC 8 / C#** and **FastAPI / Python**, coupled with modern responsive user interfaces in **React 18** and **Tailwind CSS**.
+- 🗄 **Data Engineering & Storage**: Relational schema design, ORM optimization, and indexing with **PostgreSQL**, **SQL Server**, and **MySQL**.
 
 ---
 
@@ -34,14 +37,14 @@ My technical focus spans backend engineering with **C# / .NET 8** and **Python /
 <div align="center">
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,sklearn,git,github,visualstudio,vscode,postman&theme=dark&perline=7" alt="Languages and Tools" />
+  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,postgres,sklearn,pytorch,git,github,visualstudio,vscode,postman&theme=dark&perline=8" alt="Languages, ML, and Development Tools" />
 </p>
 
 </div>
 
 ---
 
-## 📊 GitHub Analytics
+## 📊 GitHub Analytics & Activity
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github&include_all_commits=true&count_private=true" height="165"/>
@@ -63,8 +66,8 @@ My technical focus spans backend engineering with **C# / .NET 8** and **Python /
   <thead>
     <tr>
       <th>Project</th>
-      <th>Primary Stack</th>
-      <th>Architectural Highlights</th>
+      <th>Domain & Stack</th>
+      <th>Architectural & Engineering Highlights</th>
       <th>Status</th>
       <th>Repository / Docs</th>
     </tr>
@@ -72,28 +75,28 @@ My technical focus spans backend engineering with **C# / .NET 8** and **Python /
   <tbody>
     <tr>
       <td><strong>Enterprise Library Management System</strong></td>
-      <td><code>ASP.NET Core MVC 8</code> · <code>EF Core</code> · <code>PostgreSQL</code> · <code>Bootstrap 5</code></td>
+      <td><code>Full Stack</code> · <code>ASP.NET Core MVC 8</code> · <code>EF Core</code> · <code>PostgreSQL</code></td>
       <td>Role-Based Access Control (Admin/Librarian/Student), automated fine calculation, Chart.js analytics, and 5,000+ realistic seeded records.</td>
       <td><img src="https://img.shields.io/badge/Production-2ea043?style=flat-square"/></td>
       <td><a href="./mponline/README.md"><strong>Explore LMS →</strong></a></td>
     </tr>
     <tr>
-      <td><strong>Smart Expense Tracker</strong></td>
-      <td><code>FastAPI</code> · <code>React 18</code> · <code>PostgreSQL</code> · <code>Tailwind CSS</code></td>
-      <td>Repository pattern backend with async SQLAlchemy, JWT dual-token auth, rate limiting, sanitization middleware, and 9-context frontend SPA.</td>
+      <td><strong>Smart Expense Tracker & Analytics</strong></td>
+      <td><code>Full Stack & Analytics</code> · <code>FastAPI</code> · <code>React 18</code> · <code>PostgreSQL</code></td>
+      <td>Repository pattern backend with async SQLAlchemy, JWT dual-token auth, rate limiting, cash flow visualizations, and financial health scoring.</td>
       <td><img src="https://img.shields.io/badge/Production-2ea043?style=flat-square"/></td>
       <td><a href="./expense-tracker/README.md"><strong>Explore Tracker →</strong></a></td>
     </tr>
     <tr>
       <td><strong>Whisper AI Transcriber</strong></td>
-      <td><code>Python</code> · <code>OpenAI Whisper</code> · <code>FFmpeg</code> · <code>Flask</code></td>
-      <td>GPU-accelerated multi-lingual audio/video transcription service with timestamp generation and subtitle formatting.</td>
+      <td><code>AI & NLP</code> · <code>Python</code> · <code>OpenAI Whisper</code> · <code>FFmpeg</code> · <code>Flask</code></td>
+      <td>GPU-accelerated multi-lingual audio/video speech-to-text pipeline with timestamp generation and subtitle formatting.</td>
       <td><img src="https://img.shields.io/badge/Completed-2ea043?style=flat-square"/></td>
       <td><code>python_Projects/</code></td>
     </tr>
     <tr>
       <td><strong>Event Management Platform</strong></td>
-      <td><code>ASP.NET Core MVC</code> · <code>SQL Server</code> · <code>Bootstrap 5</code></td>
+      <td><code>Full Stack</code> · <code>ASP.NET Core MVC</code> · <code>SQL Server</code> · <code>Bootstrap 5</code></td>
       <td>Multi-tiered event ticketing, registrant management, dynamic scheduling, and administrator approval pipeline.</td>
       <td><img src="https://img.shields.io/badge/Active-58a6ff?style=flat-square"/></td>
       <td><code>mponline/</code></td>
@@ -149,13 +152,13 @@ dotnet run
 [![API Docs](https://img.shields.io/badge/FastAPI-Swagger_UI-009688?style=flat-square&logo=fastapi&logoColor=white)](./expense-tracker/README.md)
 [![Frontend](https://img.shields.io/badge/React-Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white)](./expense-tracker/README.md)
 
-An end-to-end personal finance platform featuring real-time budgeting, multi-category income/expense logging, and interactive financial health scoring.
+An end-to-end personal finance and data analytics platform featuring real-time budgeting, multi-category income/expense logging, and interactive financial health scoring.
 
 #### Key Highlights
 - **Production-Grade Backend**: FastAPI with async SQLAlchemy, Pydantic v2 schemas, and Alembic migrations.
 - **Dual-Token Authentication**: JWT access and refresh tokens with bcrypt password hashing.
 - **Hardened Middleware**: Rate limiting, XSS input sanitization, HSTS, and CSP security headers.
-- **Frontend SPA**: React 18 with 9 Context providers, custom hooks, and Recharts interactive analytics.
+- **Frontend SPA & Analytics**: React 18 with 9 Context providers, custom hooks, and Recharts interactive analytics.
 
 #### Quick Start (Expense Tracker)
 ```bash
@@ -211,10 +214,10 @@ npm run dev
 ```mermaid
 graph TD
     subgraph Monorepo ["Aditya Jain Monorepo"]
-        LMS["mponline/ (LMS)"]
-        EXP["expense-tracker/ (Finance)"]
-        ML["python_Projects/ (ML/AI)"]
-        DSA["java_codes/ (DSA Core)"]
+        LMS["mponline/ (LMS & Web)"]
+        EXP["expense-tracker/ (Finance & Analytics)"]
+        ML["python_Projects/ (AI & ML Pipelines)"]
+        DSA["java_codes/ (Algorithms & Core DS)"]
     end
 
     subgraph LMS_Stack [".NET 8 Ecosystem"]
@@ -223,20 +226,28 @@ graph TD
         EF --> PG_LMS[(PostgreSQL / Supabase)]
     end
 
-    subgraph EXP_Stack ["Modern Full-Stack"]
-        EXP --> SPA[React 18 + Vite]
+    subgraph EXP_Stack ["Full-Stack & Data Analytics"]
+        EXP --> SPA[React 18 + Recharts]
         SPA --> REST[FastAPI REST API v1]
         REST --> SEC[JWT & Rate Limiting Middleware]
         SEC --> REPO[Repository Pattern]
         REPO --> PG_EXP[(PostgreSQL Database)]
     end
 
+    subgraph ML_Stack ["AI & Applied Data Science"]
+        ML --> WHISPER[OpenAI Whisper / PyTorch]
+        ML --> PIPELINES[Audio / NLP Processing Pipelines]
+        ML --> ANALYTICS[Scikit-learn / Data Science]
+    end
+
     classDef monorepo fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#fff
     classDef lms fill:#512BD4,stroke:#fff,color:#fff
     classDef exp fill:#009688,stroke:#fff,color:#fff
+    classDef ml fill:#FF6F00,stroke:#fff,color:#fff
     class Monorepo monorepo
     class LMS_Stack lms
     class EXP_Stack exp
+    class ML_Stack ml
 ```
 
 ---
@@ -265,7 +276,7 @@ graph TD
 │   ├── LICENSE                   # MIT License
 │   └── README.md                 # Complete technical documentation
 │
-├── expense-tracker/              # Project 2: Smart Expense Tracker (React + FastAPI)
+├── expense-tracker/              # Project 2: Smart Expense Tracker & Analytics (React + FastAPI)
 │   ├── frontend/                 # React 18 Single Page Application
 │   │   ├── src/
 │   │   │   ├── pages/            # 12 route views (Dashboard, Expenses, Income, Budget...)
@@ -323,6 +334,6 @@ This repository is distributed under the **[MIT License](LICENSE)**.
 
 <div align="center">
   <b>Developed with precision by Aditya Jain</b><br/>
-  <i>Software Engineer · .NET Full Stack · Machine Learning</i><br/><br/>
+  <i>Software Engineer · Full Stack · AI & Machine Learning · Data Science</i><br/><br/>
   <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=100&section=footer" width="100%"/>
 </div>
