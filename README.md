@@ -21,15 +21,43 @@
 
 ---
 
-## Overview
+## 👨‍💻 About Me
 
-Welcome to the engineering monorepo of **Aditya Jain** (Computer Science & Engineering student at **VIT Bhopal University**). This repository houses full-stack web applications, data systems, and technical implementations built with strict adherence to clean architecture, enterprise standards, and performance optimization.
+Welcome to my portfolio and engineering monorepo. I am **Aditya Jain**, a Computer Science & Engineering student at **VIT Bhopal University** preparing for Software Engineering roles.
 
-Each core project is fully self-contained with its own independent source code, automated workflows, documentation, and database migrations.
+My technical focus spans backend engineering with **C# / .NET 8** and **Python / FastAPI**, modern frontends with **React 18**, robust data modeling with **PostgreSQL & SQL Server**, and applied Machine Learning.
 
 ---
 
-## Projects Directory
+## 🛠 Languages & Tools
+
+<div align="center">
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,sklearn,git,github,visualstudio,vscode,postman&theme=dark&perline=7" alt="Languages and Tools" />
+</p>
+
+</div>
+
+---
+
+## 📊 GitHub Analytics
+
+<div align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github&include_all_commits=true&count_private=true" height="165"/>
+  &nbsp;&nbsp;
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&hide=jupyter%20notebook" height="165"/>
+</div>
+
+<br/>
+
+<div align="center">
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=21262d&ring=58a6ff&fire=ff7b72&currStreakLabel=c9d1d9&sideLabels=c9d1d9&dates=8b949e" width="65%"/>
+</div>
+
+---
+
+## 🚀 Projects Directory
 
 <table>
   <thead>
@@ -75,102 +103,7 @@ Each core project is fully self-contained with its own independent source code, 
 
 ---
 
-## System Architecture
-
-```mermaid
-graph TD
-    subgraph Monorepo ["Aditya Jain Monorepo"]
-        LMS["mponline/ (LMS)"]
-        EXP["expense-tracker/ (Finance)"]
-        ML["python_Projects/ (ML/AI)"]
-        DSA["java_codes/ (DSA Core)"]
-    end
-
-    subgraph LMS_Stack [".NET 8 Ecosystem"]
-        LMS --> MVC[ASP.NET Core MVC]
-        MVC --> EF[EF Core ORM]
-        EF --> PG_LMS[(PostgreSQL / Supabase)]
-    end
-
-    subgraph EXP_Stack ["Modern Full-Stack"]
-        EXP --> SPA[React 18 + Vite]
-        SPA --> REST[FastAPI REST API v1]
-        REST --> SEC[JWT & Rate Limiting Middleware]
-        SEC --> REPO[Repository Pattern]
-        REPO --> PG_EXP[(PostgreSQL Database)]
-    end
-
-    classDef monorepo fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#fff
-    classDef lms fill:#512BD4,stroke:#fff,color:#fff
-    classDef exp fill:#009688,stroke:#fff,color:#fff
-    class Monorepo monorepo
-    class LMS_Stack lms
-    class EXP_Stack exp
-```
-
----
-
-## Repository Structure
-
-```text
-.
-├── .github/
-│   ├── ISSUE_TEMPLATE/           # Standardized bug report and feature request templates
-│   └── PULL_REQUEST_TEMPLATE.md  # Comprehensive pull request checklist
-│
-├── mponline/                     # Project 1: Library Management System (.NET 8 MVC)
-│   ├── .github/workflows/        # CI/CD: Automated .NET 8 build and validation
-│   ├── LibraryManagement.MVC/    # Application source code
-│   │   ├── Controllers/          # 12 MVC Controllers (Books, Borrow, Fines, Reports...)
-│   │   ├── Models/               # 9 Domain Entities (Book, Student, Fine, Magazine...)
-│   │   ├── Views/                # Server-rendered Razor views with bespoke design system
-│   │   ├── Data/                 # EF Core DbContext & Database Configurations
-│   │   ├── DbSeeder.cs           # Seed generator (5,000+ books & borrow records)
-│   │   ├── Program.cs            # Middleware pipeline & Dependency Injection container
-│   │   └── .env.example          # Safe environment variable configuration template
-│   ├── docs/                     # 14 high-resolution UI screenshots & Mermaid diagrams
-│   ├── scripts/                  # Data ingestion & diagram generation utilities
-│   ├── CONTRIBUTING.md           # LMS contribution guidelines
-│   ├── LICENSE                   # MIT License
-│   └── README.md                 # Complete technical documentation
-│
-├── expense-tracker/              # Project 2: Smart Expense Tracker (React + FastAPI)
-│   ├── frontend/                 # React 18 Single Page Application
-│   │   ├── src/
-│   │   │   ├── pages/            # 12 route views (Dashboard, Expenses, Income, Budget...)
-│   │   │   ├── components/       # Shared UI component library (Modals, Charts, Skeletons)
-│   │   │   ├── context/          # 9-provider global Context API state tree
-│   │   │   └── hooks/            # Domain-scoped custom React hooks
-│   │   └── package.json
-│   ├── backend/                  # Production-hardened FastAPI backend
-│   │   ├── app/
-│   │   │   ├── api/v1/           # Versioned REST endpoints (Auth, Expenses, Analytics...)
-│   │   │   ├── core/             # Security, rate limiter, input sanitizer, database
-│   │   │   ├── models/           # SQLAlchemy ORM database models
-│   │   │   ├── schemas/          # Pydantic v2 validation schemas
-│   │   │   └── repositories/     # Repository pattern data access layer
-│   │   ├── alembic/              # Database migration version scripts
-│   │   ├── tests/                # Automated pytest security and route test suite
-│   │   ├── main.py               # Application entry point with security middleware stack
-│   │   └── requirements.txt      # Python dependencies
-│   ├── docs/                     # API specification, architectural designs, roadmap
-│   ├── CHANGELOG.md              # Version release notes
-│   ├── LICENSE                   # MIT License
-│   └── README.md                 # Complete technical documentation
-│
-├── python_Projects/              # ML experiments, OpenAI Whisper audio pipelines, Python utilities
-├── java_codes/                   # Data Structures and Algorithms implementations
-├── .gitignore                    # Enterprise multi-stack git exclusions (.NET, Node, Python, Java)
-├── CONTRIBUTING.md               # Monorepo contribution standards & Conventional Commits
-├── CODE_OF_CONDUCT.md            # Contributor Covenant v2.1 standard
-├── SECURITY.md                   # Security vulnerability reporting policy
-├── LICENSE                       # MIT License
-└── README.md                     # Monorepo landing page
-```
-
----
-
-## Featured Projects Deep Dive
+## 🌟 Featured Projects Deep Dive
 
 ### 1. Enterprise Library Management System (`mponline/`)
 
@@ -244,7 +177,7 @@ npm run dev
 
 ---
 
-## Visual Showcase
+## 🖼 Visual Showcase
 
 <div align="center">
   <table>
@@ -273,35 +206,102 @@ npm run dev
 
 ---
 
-## 🛠 Languages & Tools
+## 🏛 System Architecture
 
-<div align="center">
+```mermaid
+graph TD
+    subgraph Monorepo ["Aditya Jain Monorepo"]
+        LMS["mponline/ (LMS)"]
+        EXP["expense-tracker/ (Finance)"]
+        ML["python_Projects/ (ML/AI)"]
+        DSA["java_codes/ (DSA Core)"]
+    end
 
-<p align="center">
-  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,sklearn,git,github,visualstudio,vscode,postman&theme=dark&perline=7" alt="Languages and Tools" />
-</p>
+    subgraph LMS_Stack [".NET 8 Ecosystem"]
+        LMS --> MVC[ASP.NET Core MVC]
+        MVC --> EF[EF Core ORM]
+        EF --> PG_LMS[(PostgreSQL / Supabase)]
+    end
 
-</div>
+    subgraph EXP_Stack ["Modern Full-Stack"]
+        EXP --> SPA[React 18 + Vite]
+        SPA --> REST[FastAPI REST API v1]
+        REST --> SEC[JWT & Rate Limiting Middleware]
+        SEC --> REPO[Repository Pattern]
+        REPO --> PG_EXP[(PostgreSQL Database)]
+    end
+
+    classDef monorepo fill:#0d1117,stroke:#58a6ff,stroke-width:2px,color:#fff
+    classDef lms fill:#512BD4,stroke:#fff,color:#fff
+    classDef exp fill:#009688,stroke:#fff,color:#fff
+    class Monorepo monorepo
+    class LMS_Stack lms
+    class EXP_Stack exp
+```
 
 ---
 
-## GitHub Analytics
+## 📁 Repository Structure
 
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Aditya4860&show_icons=true&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=58a6ff&text_color=c9d1d9&rank_icon=github&include_all_commits=true&count_private=true" height="165"/>
-  &nbsp;&nbsp;
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8&hide=jupyter%20notebook" height="165"/>
-</div>
-
-<br/>
-
-<div align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Aditya4860&theme=github-dark-blue&hide_border=true&background=0d1117&stroke=21262d&ring=58a6ff&fire=ff7b72&currStreakLabel=c9d1d9&sideLabels=c9d1d9&dates=8b949e" width="65%"/>
-</div>
+```text
+.
+├── .github/
+│   ├── ISSUE_TEMPLATE/           # Standardized bug report and feature request templates
+│   └── PULL_REQUEST_TEMPLATE.md  # Comprehensive pull request checklist
+│
+├── mponline/                     # Project 1: Library Management System (.NET 8 MVC)
+│   ├── .github/workflows/        # CI/CD: Automated .NET 8 build and validation
+│   ├── LibraryManagement.MVC/    # Application source code
+│   │   ├── Controllers/          # 12 MVC Controllers (Books, Borrow, Fines, Reports...)
+│   │   ├── Models/               # 9 Domain Entities (Book, Student, Fine, Magazine...)
+│   │   ├── Views/                # Server-rendered Razor views with bespoke design system
+│   │   ├── Data/                 # EF Core DbContext & Database Configurations
+│   │   ├── DbSeeder.cs           # Seed generator (5,000+ books & borrow records)
+│   │   ├── Program.cs            # Middleware pipeline & Dependency Injection container
+│   │   └── .env.example          # Safe environment variable configuration template
+│   ├── docs/                     # 14 high-resolution UI screenshots & Mermaid diagrams
+│   ├── scripts/                  # Data ingestion & diagram generation utilities
+│   ├── CONTRIBUTING.md           # LMS contribution guidelines
+│   ├── LICENSE                   # MIT License
+│   └── README.md                 # Complete technical documentation
+│
+├── expense-tracker/              # Project 2: Smart Expense Tracker (React + FastAPI)
+│   ├── frontend/                 # React 18 Single Page Application
+│   │   ├── src/
+│   │   │   ├── pages/            # 12 route views (Dashboard, Expenses, Income, Budget...)
+│   │   │   ├── components/       # Shared UI component library (Modals, Charts, Skeletons)
+│   │   │   ├── context/          # 9-provider global Context API state tree
+│   │   │   └── hooks/            # Domain-scoped custom React hooks
+│   │   └── package.json
+│   ├── backend/                  # Production-hardened FastAPI backend
+│   │   ├── app/
+│   │   │   ├── api/v1/           # Versioned REST endpoints (Auth, Expenses, Analytics...)
+│   │   │   ├── core/             # Security, rate limiter, input sanitizer, database
+│   │   │   ├── models/           # SQLAlchemy ORM database models
+│   │   │   ├── schemas/          # Pydantic v2 validation schemas
+│   │   │   └── repositories/     # Repository pattern data access layer
+│   │   ├── alembic/              # Database migration version scripts
+│   │   ├── tests/                # Automated pytest security and route test suite
+│   │   ├── main.py               # Application entry point with security middleware stack
+│   │   └── requirements.txt      # Python dependencies
+│   ├── docs/                     # API specification, architectural designs, roadmap
+│   ├── CHANGELOG.md              # Version release notes
+│   ├── LICENSE                   # MIT License
+│   └── README.md                 # Complete technical documentation
+│
+├── python_Projects/              # ML experiments, OpenAI Whisper audio pipelines, Python utilities
+├── java_codes/                   # Data Structures and Algorithms implementations
+├── .gitignore                    # Enterprise multi-stack git exclusions (.NET, Node, Python, Java)
+├── CONTRIBUTING.md               # Monorepo contribution standards & Conventional Commits
+├── CODE_OF_CONDUCT.md            # Contributor Covenant v2.1 standard
+├── SECURITY.md                   # Security vulnerability reporting policy
+├── LICENSE                       # MIT License
+└── README.md                     # Monorepo landing page
+```
 
 ---
 
-## Contributing & Standards
+## 🤝 Contributing & Standards
 
 We welcome contributions from the open-source community! Please review our [Contributing Guidelines](CONTRIBUTING.md) and [Code of Conduct](CODE_OF_CONDUCT.md) before submitting pull requests.
 
@@ -315,7 +315,7 @@ We enforce **[Conventional Commits](https://www.conventionalcommits.org/)** on a
 
 ---
 
-## License
+## 📜 License
 
 This repository is distributed under the **[MIT License](LICENSE)**.
 
