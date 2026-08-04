@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,50:161b22,100:0d1117&height=180&section=header&text=Aditya%20Jain&fontSize=50&fontColor=ffffff&fontAlignY=42&fontAlign=50&desc=Software%20Engineer%20%7C%20Full%20Stack%20%7C%20AI%20%26%20ML%20%7C%20Data%20Science&descSize=15&descAlignY=62&descColor=8b949e&animation=fadeIn" width="100%" />
+<img src="https://raw.githubusercontent.com/Aditya4860/Aditya4860/main/assets/profile-banner.png" alt="Aditya Jain Profile Banner" width="100%" />
 
 <p>
   <a href="https://www.linkedin.com/in/aditya-jain0315/"><img src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="aditya-jain0315" height="32" width="42" /></a>
