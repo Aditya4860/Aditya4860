@@ -32,13 +32,21 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 
 ---
 
-## 🛠 Languages & Tools
+## 🛠 Technical Skills & Tools
 
 <div align="center">
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=cs,python,java,js,dotnet,bootstrap,sqlserver,mysql,postgres,sklearn,pytorch,git,github,visualstudio,vscode,postman&theme=dark&perline=8" alt="Languages, ML, and Development Tools" />
+  <img src="https://skillicons.dev/icons?i=python,java,cs,js,html,css,dotnet,bootstrap,mysql,postgres,sqlserver,sklearn,pytorch,git,github,vscode,visualstudio,pycharm,ipynb,postman&theme=dark&perline=10" alt="Technical Skills, ML Frameworks, and Developer Tools" />
 </p>
+
+| Category | Technologies |
+|---|---|
+| **Languages** | Java, Python, C#, SQL, JavaScript |
+| **Web Technologies** | HTML5, CSS3, JavaScript, Bootstrap, Streamlit, ASP.NET Core, React 18 |
+| **Machine Learning & Data** | Scikit-learn, Pandas, NumPy, Feature Engineering, Model Deployment, PyTorch, OpenAI Whisper |
+| **Databases** | MySQL, PostgreSQL, SQL Server |
+| **Tools & Platforms** | Git, GitHub, VS Code, PyCharm, Jupyter Notebook, Visual Studio, Postman, TMDB API, Pickle, Joblib |
 
 </div>
 
