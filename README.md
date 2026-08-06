@@ -37,7 +37,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 <div align="center">
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,java,cs,js,html,css,dotnet,bootstrap,mysql,postgres,sqlserver,sklearn,pytorch,git,github,vscode,visualstudio,pycharm,ipynb,postman&theme=dark&perline=10" alt="Technical Skills, ML Frameworks, and Developer Tools" />
+  <img src="https://skillicons.dev/icons?i=python,java,cs,js,ts,html,css,react,tailwind,bootstrap,dotnet,fastapi,pytorch,sklearn,mysql,postgres,git,github,vscode,visualstudio,pycharm,postman&theme=dark&perline=11" alt="Technical Skills, ML Frameworks, and Developer Tools" />
 </p>
 
 | Category | Technologies |
