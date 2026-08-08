@@ -37,7 +37,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 <div align="center">
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,java,cs,js,ts,html,css,react,tailwind,bootstrap,dotnet,fastapi,pytorch,sklearn,mysql,postgres,git,github,vscode,visualstudio,pycharm,postman&theme=dark&perline=11" alt="Technical Skills, ML Frameworks, and Developer Tools" />
+  <img src="https://skillicons.dev/icons?i=python,java,cs,js,ts,html,css,react,tailwind,bootstrap,dotnet,fastapi,pytorch,sklearn,mysql,postgres,git,github,vscode,visualstudio,pycharm,postman,aws&theme=dark&perline=11" alt="Technical Skills, ML Frameworks, and Developer Tools" />
 </p>
 
 | Category | Technologies |
@@ -46,7 +46,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 | **Web Technologies** | HTML5, CSS3, JavaScript, Bootstrap, Streamlit, ASP.NET Core, React 18 |
 | **Machine Learning & Data** | Scikit-learn, Pandas, NumPy, Feature Engineering, Model Deployment, PyTorch, OpenAI Whisper |
 | **Databases** | MySQL, PostgreSQL, SQL Server |
-| **Tools & Platforms** | Git, GitHub, VS Code, PyCharm, Jupyter Notebook, Visual Studio, Postman, TMDB API, Pickle, Joblib |
+| **Tools & Platforms** | Git, GitHub, AWS, VS Code, PyCharm, Jupyter Notebook, Visual Studio, Postman, TMDB API, Pickle, Joblib |
 
 </div>
 
