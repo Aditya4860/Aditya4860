@@ -55,16 +55,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 ## 📊 GitHub Stats & Metrics
 
 <div align="center">
-  <table border="0">
-    <tr>
-      <td align="center">
-        <img height="165em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" />
-      </td>
-      <td align="center">
-        <img height="165em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Aditya4860&show_icons=true&theme=tokyonight&include_all_commits=true&count_private=true&hide_border=true" alt="GitHub Stats" />
-      </td>
-    </tr>
-  </table>
+  <img src="https://metrics.lecoq.io/Aditya4860?config.theme=tokyonight&base=header,repositories&plugin_languages=yes&plugin_languages_details=bytes-size,percentage" alt="GitHub Metrics" width="80%" />
 </div>
 
 <br/>
