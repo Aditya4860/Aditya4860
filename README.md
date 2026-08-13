@@ -55,13 +55,22 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 ## 📊 GitHub Stats & Metrics
 
 <div align="center">
-  <img src="https://metrics.lecoq.io/Aditya4860?config.theme=tokyonight&base=header,repositories&plugin_languages=yes&plugin_languages_details=bytes-size,percentage" alt="GitHub Metrics" width="80%" />
+  <table border="0">
+    <tr>
+      <td align="center">
+        <img height="165em" src="https://github-readme-stats-sigma-five.vercel.app/api?username=Aditya4860&show_icons=true&theme=radical&include_all_commits=true&hide_border=true" alt="GitHub Stats" />
+      </td>
+      <td align="center">
+        <img height="165em" src="https://github-readme-stats-sigma-five.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
+      </td>
+    </tr>
+  </table>
 </div>
 
 <br/>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com/?user=Aditya4860&theme=tokyonight&hide_border=true" width="65%"/>
+  <img src="https://streak-stats.demolab.com/?user=Aditya4860&theme=radical&hide_border=true" width="65%"/>
 </div>
 
 ---
@@ -115,7 +124,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 ## 📈 Contribution Activity
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aditya4860&theme=tokyo-night&hide_border=true&area=true&custom_title=Aditya's%20GitHub%20Contribution%20Graph" width="100%" alt="GitHub Contribution Graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aditya4860&theme=radical&hide_border=true&area=true&custom_title=Aditya's%20GitHub%20Contribution%20Graph" width="100%" alt="GitHub Contribution Graph" />
 </div>
 
 ---
