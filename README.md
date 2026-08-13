@@ -58,10 +58,10 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
   <table border="0">
     <tr>
       <td align="center">
-        <img height="165em" src="https://github-readme-stats.anuraghazra1.vercel.app/api?username=Aditya4860&show_icons=true&theme=radical&include_all_commits=true&hide_border=true" alt="GitHub Stats" />
+        <img height="165em" src="https://github-readme-stats.anuraghazra1.vercel.app/api?username=Aditya4860&show_icons=true&theme=radical&include_all_commits=true&hide_border=true&title_color=ff3333&ring_color=ff3333" alt="GitHub Stats" />
       </td>
       <td align="center">
-        <img height="165em" src="https://github-readme-stats.anuraghazra1.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=radical&hide_border=true" alt="Top Languages" />
+        <img height="165em" src="https://github-readme-stats.anuraghazra1.vercel.app/api/top-langs/?username=Aditya4860&layout=compact&theme=radical&hide_border=true&title_color=ff3333" alt="Top Languages" />
       </td>
     </tr>
   </table>
@@ -70,7 +70,7 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 <br/>
 
 <div align="center">
-  <img src="https://streak-stats.demolab.com/?user=Aditya4860&theme=radical&hide_border=true" width="65%"/>
+  <img src="https://streak-stats.demolab.com/?user=Aditya4860&theme=radical&hide_border=true&ring=ff3333&fire=ff3333&sideNums=ff3333&sideLabels=ff3333" width="65%"/>
 </div>
 
 ---
