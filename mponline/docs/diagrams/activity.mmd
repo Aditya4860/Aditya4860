@@ -1,0 +1,8 @@
+stateDiagram-v2
+    [*] --> Login
+    Login --> Dashboard : Valid Credentials
+    Login --> Login : Invalid Credentials
+    Dashboard --> SearchBooks
+    SearchBooks --> BorrowBook
+    BorrowBook --> UpdateInventory
+    UpdateInventory --> [*]

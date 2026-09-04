@@ -1,0 +1,22 @@
+classDiagram
+    class Book {
+      +int Id
+      +string Title
+      +string Author
+      +borrow()
+      +return()
+    }
+    class User {
+      +int Id
+      +string Email
+      +string Role
+      +login()
+    }
+    class BorrowRecord {
+      +int RecordId
+      +DateTime IssueDate
+      +DateTime DueDate
+      +calculateFine()
+    }
+    User "1" -- "*" BorrowRecord
+    Book "1" -- "*" BorrowRecord

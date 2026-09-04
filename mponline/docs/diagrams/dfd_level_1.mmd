@@ -1,0 +1,7 @@
+graph TD
+    User([User]) -->|Credentials| Auth[Authentication Process]
+    Auth -->|Validation Result| User
+    Librarian([Librarian]) -->|Book Details| Manage[Book Management]
+    Manage -->|DB Updates| DB[(Database)]
+    Student([Student]) -->|Borrow Request| Borrow[Borrow Process]
+    Borrow -->|Status Update| DB

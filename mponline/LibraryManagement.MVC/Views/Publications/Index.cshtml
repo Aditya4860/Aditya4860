@@ -109,10 +109,11 @@
                     <a class="page-link" asp-action="Index" 
                        asp-route-page="@(Model.CurrentPage - 1)" 
                        asp-route-searchQuery="@Model.SearchQuery"
-                       asp-route-type="@Model.FilterType">Previous</a>
+                       asp-route-type="@Model.FilterType"><i class="bi bi-chevron-left"></i></a>
                 </li>
                 
-                @for (int i = 1; i <= Model.TotalPages; i++)
+                @{ int _mP = 10; int _sP = Math.Max(1, Model.CurrentPage - _mP/2); int _eP = Math.Min(Model.TotalPages, _sP + _mP - 1); if(_eP - _sP + 1 < _mP){_sP = Math.Max(1, _eP - _mP + 1);} }
+                        @for (int i = _sP; i <= _eP; i++)
                 {
                     <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
                         <a class="page-link" asp-action="Index" 
@@ -126,7 +127,7 @@
                     <a class="page-link" asp-action="Index" 
                        asp-route-page="@(Model.CurrentPage + 1)" 
                        asp-route-searchQuery="@Model.SearchQuery"
-                       asp-route-type="@Model.FilterType">Next</a>
+                       asp-route-type="@Model.FilterType"><i class="bi bi-chevron-right"></i></a>
                 </li>
             </ul>
         </nav>

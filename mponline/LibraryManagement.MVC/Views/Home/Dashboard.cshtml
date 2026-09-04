@@ -4,420 +4,410 @@
     ViewData["Title"] = "Dashboard";
 }
 
-<div class="page-header px-4">
-    <div class="container-fluid p-0">
-        <h1><i class="bi bi-grid-fill me-2"></i>Dashboard</h1>
-        <p>Overview of library statistics and recent activities.</p>
+<!-- Hero Header -->
+<div style="background: linear-gradient(135deg, #111111 0%, #2A3B8F 100%); border-radius: var(--radius-xl); padding: 3rem; margin-bottom: 2rem; color: white; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 20px 40px -10px rgba(17, 17, 17, 0.3); position: relative; overflow: hidden;">
+    <!-- Abstract overlay -->
+    <div style="position: absolute; top: -50%; right: -10%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%); border-radius: 50%;"></div>
+    
+    <div style="position: relative; z-index: 1;">
+        <h1 style="font-size: 2.5rem; font-weight: 700; margin-bottom: 0.5rem; letter-spacing: -0.03em; color: white;">Good Morning, @(User.Identity.Name ?? "Admin")</h1>
+        <p style="color: rgba(255,255,255,0.8); font-size: 1.125rem; margin: 0;">Here is what's happening in your library today.</p>
+    </div>
+    
+    <div style="display: flex; gap: 1rem; position: relative; z-index: 1;">
+        <a asp-controller="Borrow" asp-action="Create" class="btn" style="background: white; color: #111111; border-radius: var(--radius-pill); font-weight: 600; padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 0.5rem; transition: transform 0.2s; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <i data-lucide="arrow-right-left" style="width: 18px; height: 18px;"></i> Issue Book
+        </a>
+        <a asp-controller="Books" asp-action="Create" class="btn" style="background: rgba(255,255,255,0.15); color: white; border: 1px solid rgba(255,255,255,0.3); border-radius: var(--radius-pill); font-weight: 600; padding: 0.75rem 1.5rem; display: flex; align-items: center; gap: 0.5rem; backdrop-filter: blur(8px); transition: background 0.2s;">
+            <i data-lucide="book-plus" style="width: 18px; height: 18px;"></i> Add Book
+        </a>
     </div>
 </div>
 
-<div class="container-fluid px-4 pb-5">
+<!-- Statistics Grid -->
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-bottom: 2.5rem;" class="animate-fade-in stagger-1">
     
-    <!-- Summary Stats Row 1 (Core) -->
-    <div class="row g-3 mb-3">
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(99,102,241,0.15); color:var(--primary);">
-                    <i class="bi bi-collection-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalBooks</h3>
-                    <p class="text-secondary small mb-0 fw-500">Total Books</p>
-                </div>
+    <!-- Stat Card: Total Books -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s; cursor: default;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(91, 124, 250, 0.1); color: var(--accent-color); display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="library" style="width: 20px; height: 20px;"></i>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
-                    <i class="bi bi-check-circle-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.AvailableBooks</h3>
-                    <p class="text-secondary small mb-0 fw-500">Available Books</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(239,68,68,0.15); color:var(--danger);">
-                    <i class="bi bi-book-half fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.BorrowedBooks</h3>
-                    <p class="text-secondary small mb-0 fw-500">Issued Books</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(99,102,241,0.15); color:var(--primary);">
-                    <i class="bi bi-people-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalStudents</h3>
-                    <p class="text-secondary small mb-0 fw-500">Students</p>
-                </div>
-            </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.TotalBooks</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Total Books</div>
         </div>
     </div>
 
-    <!-- Summary Stats Row 1.5 (New Entities) -->
-    <div class="row g-3 mb-3">
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(236,72,153,0.15); color:var(--accent);">
-                    <i class="bi bi-person-badge-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalLibrarians</h3>
-                    <p class="text-secondary small mb-0 fw-500">Librarians</p>
-                </div>
+    <!-- Stat Card: Available Books -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(16, 185, 129, 0.1); color: #10B981; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i>
             </div>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #10B981; background: rgba(16, 185, 129, 0.1); padding: 0.25rem 0.5rem; border-radius: 99px;">
+                @(Model.TotalBooks > 0 ? (Model.AvailableBooks * 100 / Model.TotalBooks) : 0)% available
+            </span>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(245,158,11,0.15); color:var(--warning);">
-                    <i class="bi bi-journal-text fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalMagazines</h3>
-                    <p class="text-secondary small mb-0 fw-500">Magazines</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
-                    <i class="bi bi-newspaper fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalNewspapers</h3>
-                    <p class="text-secondary small mb-0 fw-500">Newspapers</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#f3e8ff; color:#9333ea;">
-                    <i class="bi bi-journal-album fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TotalPublications</h3>
-                    <p class="text-secondary small mb-0 fw-500">Total Pubs</p>
-                </div>
-            </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.AvailableBooks</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Available Books</div>
         </div>
     </div>
 
-    <!-- Summary Stats Row 2 (Today/Fines) -->
-    <div class="row g-3 mb-4">
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#eff6ff; color:var(--primary);">
-                    <i class="bi bi-calendar-check-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TodaysBorrowings</h3>
-                    <p class="text-secondary small mb-0 fw-500">Today's Borrowings</p>
-                </div>
+    <!-- Stat Card: Issued Books -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(239, 68, 68, 0.1); color: #EF4444; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="book-open" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #EF4444; background: rgba(239, 68, 68, 0.1); padding: 0.25rem 0.5rem; border-radius: 99px;">
+                Currently issued
+            </span>
+        </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.BorrowedBooks</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Issued Books</div>
+        </div>
+    </div>
+
+    <!-- Stat Card: Students -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(245, 158, 11, 0.1); color: #F59E0B; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="users" style="width: 20px; height: 20px;"></i>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
-                    <i class="bi bi-arrow-return-left fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">@Model.TodaysReturns</h3>
-                    <p class="text-secondary small mb-0 fw-500">Today's Returns</p>
-                </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.TotalStudents</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Registered Students</div>
+        </div>
+    </div>
+
+    <!-- Stat Card: Librarians -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(139, 92, 246, 0.1); color: #8B5CF6; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="user-cog" style="width: 20px; height: 20px;"></i>
             </div>
         </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:#fef2f2; color:var(--danger);">
-                    <i class="bi bi-exclamation-octagon-fill fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">₹@Model.PendingFine</h3>
-                    <p class="text-secondary small mb-0 fw-500">Pending Fine</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6 col-lg-3">
-            <div class="card p-3 d-flex flex-row align-items-center gap-3 border-0 shadow-sm rounded-4 h-100 stat-card" style="transition: transform 0.2s;">
-                <div class="rounded-circle d-flex align-items-center justify-content-center" style="width:50px; height:50px; background:rgba(16,185,129,0.15); color:var(--success);">
-                    <i class="bi bi-cash-stack fs-4"></i>
-                </div>
-                <div>
-                    <h3 class="fs-4 mb-0 fw-bold text-dark">₹@Model.CollectedFine</h3>
-                    <p class="text-secondary small mb-0 fw-500">Collected Fine</p>
-                </div>
-            </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.TotalLibrarians</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Staff Members</div>
         </div>
     </div>
     
-    <!-- Quick Actions & Recently Added Books -->
-    <div class="row g-4 mb-4">
-        <!-- Quick Actions -->
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-2">
-                    <h5 class="fw-bold m-0"><i class="bi bi-lightning-fill text-warning me-2"></i>Quick Actions</h5>
-                </div>
-                <div class="card-body">
-                    <div class="d-grid gap-3">
-                        <a asp-controller="Borrow" asp-action="Create" class="btn btn-primary rounded-3 text-start px-4 py-3 fw-bold shadow-sm d-flex justify-content-between align-items-center">
-                            <span><i class="bi bi-box-arrow-right me-2"></i> Issue Book</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                        <a asp-controller="Student" asp-action="Create" class="btn btn-success rounded-3 text-start px-4 py-3 fw-bold shadow-sm d-flex justify-content-between align-items-center">
-                            <span><i class="bi bi-person-plus-fill me-2"></i> Add Student</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                        <a asp-controller="Books" asp-action="Create" class="btn btn-info text-white rounded-3 text-start px-4 py-3 fw-bold shadow-sm d-flex justify-content-between align-items-center">
-                            <span><i class="bi bi-journal-plus me-2"></i> Add Book</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                        <a asp-controller="Reports" asp-action="Index" class="btn btn-dark text-white rounded-3 text-start px-4 py-3 fw-bold shadow-sm d-flex justify-content-between align-items-center">
-                            <span><i class="bi bi-bar-chart-fill me-2"></i> Analytics & Reports</span>
-                            <i class="bi bi-chevron-right"></i>
-                        </a>
-                    </div>
-                </div>
+    <!-- Stat Card: Magazines -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(236, 72, 153, 0.1); color: #EC4899; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="book-marked" style="width: 20px; height: 20px;"></i>
             </div>
         </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.TotalMagazines</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Magazines</div>
+        </div>
+    </div>
 
-        <!-- Recently Added Books -->
-        <div class="col-lg-8">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0 d-flex justify-content-between align-items-center">
-                    <h5 class="fw-bold m-0"><i class="bi bi-stars text-primary me-2"></i>Recently Added Books</h5>
-                    <a asp-controller="Books" asp-action="Index" class="btn btn-sm btn-outline-primary rounded-pill">View Catalog</a>
-                </div>
-                <div class="card-body">
-                    <div class="row g-3">
-                        @foreach (var book in Model.FeaturedBooks.Take(3))
-                        {
-                            <div class="col-md-4">
-                                <div class="card h-100 border rounded-3 bg-light bg-opacity-50">
-                                    <div class="card-body text-center p-3">
-                                        <div class="bg-white rounded-circle shadow-sm d-inline-flex align-items-center justify-content-center mb-3 text-primary" style="width:60px; height:60px;">
-                                            <i class="bi bi-book-fill fs-3"></i>
-                                        </div>
-                                        <h6 class="fw-bold text-dark mb-1 text-truncate" title="@book.Title">@book.Title</h6>
-                                        <p class="text-secondary small mb-2 text-truncate" title="@book.Author">@book.Author</p>
-                                        <span class="badge bg-primary bg-opacity-10 text-primary border border-primary border-opacity-25">@book.Category</span>
-                                    </div>
+    <!-- Stat Card: Newspapers -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(20, 184, 166, 0.1); color: #14B8A6; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="newspaper" style="width: 20px; height: 20px;"></i>
+            </div>
+        </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">@Model.TotalNewspapers</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Newspapers</div>
+        </div>
+    </div>
+
+    <!-- Stat Card: Pending Fines -->
+    <div class="card" style="padding: 1.5rem; display: flex; flex-direction: column; justify-content: space-between; position: relative; overflow: hidden; transition: transform 0.2s, box-shadow 0.2s;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1.5rem;">
+            <div style="width: 40px; height: 40px; border-radius: 10px; background: rgba(244, 63, 94, 0.1); color: #F43F5E; display: flex; align-items: center; justify-content: center;">
+                <i data-lucide="credit-card" style="width: 20px; height: 20px;"></i>
+            </div>
+            <span style="font-size: 0.75rem; font-weight: 600; color: #F43F5E; background: rgba(244, 63, 94, 0.1); padding: 0.25rem 0.5rem; border-radius: 99px;">
+                Uncollected
+            </span>
+        </div>
+        <div>
+            <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary); line-height: 1.1; margin-bottom: 0.25rem;">₹@Model.PendingFine</div>
+            <div style="color: var(--text-secondary); font-size: 0.875rem; font-weight: 500;">Pending Fines</div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Charts Section -->
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;" class="animate-fade-in stagger-2">
+    <!-- Area Chart: Borrowing Trends -->
+    <div class="card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin: 0 0 0.25rem 0;">Borrowing Trends</h3>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Monthly resource utilization</p>
+            </div>
+            <div style="display: flex; gap: 0.5rem;">
+                <span style="font-size: 0.75rem; font-weight: 600; color: var(--text-primary); background: var(--bg-color); padding: 0.375rem 0.75rem; border-radius: var(--radius-pill); border: 1px solid var(--border-color);">This Year</span>
+            </div>
+        </div>
+        <div style="height: 320px; width: 100%;">
+            <canvas id="lineChart"></canvas>
+        </div>
+    </div>
+    
+    <!-- Radial Chart: Resource Availability -->
+    <div class="card" style="padding: 2rem; display: flex; flex-direction: column;">
+        <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin: 0 0 0.25rem 0;">Resource Availability</h3>
+        <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0 0 2rem 0;">Current library stock status</p>
+        
+        <div style="flex: 1; display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="height: 250px; width: 250px;">
+                <canvas id="pieChart"></canvas>
+            </div>
+            <!-- Center Text for Radial Chart -->
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); text-align: center;">
+                <div style="font-size: 2.5rem; font-weight: 800; color: var(--text-primary); line-height: 1;">@(Model.TotalBooks > 0 ? (Model.AvailableBooks * 100 / Model.TotalBooks) : 0)%</div>
+                <div style="font-size: 0.875rem; font-weight: 500; color: var(--text-secondary);">Available</div>
+            </div>
+        </div>
+        
+        <div style="display: flex; justify-content: center; gap: 1.5rem; margin-top: 1.5rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--text-primary);"></div>
+                <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Available</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                <div style="width: 10px; height: 10px; border-radius: 50%; background: var(--bg-color); border: 2px solid var(--border-color);"></div>
+                <span style="font-size: 0.875rem; color: var(--text-secondary); font-weight: 500;">Issued</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Bottom Section: Timeline & Actions -->
+<div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1.5rem; margin-bottom: 2.5rem;" class="animate-fade-in stagger-3">
+    <!-- Recent Activity Timeline -->
+    <div class="card" style="padding: 2rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+            <div>
+                <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin: 0 0 0.25rem 0;">Recent Activity</h3>
+                <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">Latest transactions and updates</p>
+            </div>
+            <a asp-controller="Borrow" asp-action="Index" style="font-size: 0.875rem; font-weight: 600; color: var(--accent-color); text-decoration: none;">View All</a>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+            @if (!Model.RecentBorrows.Any())
+            {
+                <div style="text-align: center; color: var(--text-secondary); padding: 2rem;">No recent transactions.</div>
+            }
+            else
+            {
+                foreach (var record in Model.RecentBorrows.Take(5))
+                {
+                    var itemName = record.Book != null ? record.Book.Title : (record.Publication != null ? record.Publication.Title : "Unknown Item");
+                    var isReturned = record.ReturnDate.HasValue;
+                    var isOverdue = !isReturned && DateTime.Today > record.DueDate;
+                    
+                    <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                        <div style="width: 40px; height: 40px; border-radius: 50%; background: @(isReturned ? "rgba(16, 185, 129, 0.1)" : (isOverdue ? "rgba(239, 68, 68, 0.1)" : "rgba(91, 124, 250, 0.1)")); color: @(isReturned ? "#10B981" : (isOverdue ? "#EF4444" : "var(--accent-color)")); display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+                            @if (isReturned)
+                            {
+                                <i data-lucide="check-circle" style="width: 20px; height: 20px;"></i>
+                            }
+                            else if (isOverdue)
+                            {
+                                <i data-lucide="alert-circle" style="width: 20px; height: 20px;"></i>
+                            }
+                            else
+                            {
+                                <i data-lucide="arrow-right-left" style="width: 20px; height: 20px;"></i>
+                            }
+                        </div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.25rem;">
+                                <div style="font-weight: 600; color: var(--text-primary);">
+                                    @(record.Student?.Name ?? "Unknown")
+                                </div>
+                                <div style="font-size: 0.75rem; color: var(--text-secondary);">
+                                    @(isReturned ? (record.ReturnDate?.ToShortDateString() ?? "") : record.BorrowDate.ToShortDateString())
                                 </div>
                             </div>
-                        }
-                        @if (!Model.FeaturedBooks.Any())
-                        {
-                            <div class="col-12 text-center text-muted py-4">
-                                No books added recently.
+                            <div style="font-size: 0.875rem; color: var(--text-secondary); margin-bottom: 0.5rem;">
+                                @(isReturned ? "Returned" : "Borrowed") <span style="font-weight: 500; color: var(--text-primary);">@itemName</span>
                             </div>
-                        }
+                            @if (isOverdue)
+                            {
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #EF4444; background: rgba(239, 68, 68, 0.1); padding: 0.125rem 0.5rem; border-radius: 4px;">Overdue</span>
+                            }
+                            else if (!isReturned)
+                            {
+                                <span style="font-size: 0.75rem; font-weight: 600; color: #F59E0B; background: rgba(245, 158, 11, 0.1); padding: 0.125rem 0.5rem; border-radius: 4px;">Active</span>
+                            }
+                        </div>
                     </div>
-                </div>
-            </div>
+                }
+            }
         </div>
     </div>
-    
-    <!-- Charts Section -->
-    <div class="row g-4 mb-4">
-        <div class="col-lg-4">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
-                    <h5 class="fw-bold"><i class="bi bi-pie-chart-fill text-primary me-2"></i>Books vs Borrowed</h5>
+
+    <!-- Additional Quick Actions & Info -->
+    <div style="display: flex; flex-direction: column; gap: 1.5rem;">
+        <!-- Announcements Card -->
+        <div class="card" style="padding: 1.5rem; background: rgba(91, 124, 250, 0.05); border: 1px solid rgba(91, 124, 250, 0.2); border-left: 4px solid var(--accent-color);">
+            <div style="display: flex; gap: 1rem; align-items: flex-start;">
+                <div style="color: var(--accent-color); padding-top: 0.25rem;">
+                    <i data-lucide="megaphone" style="width: 20px; height: 20px;"></i>
                 </div>
-                <div class="card-body">
-                    <canvas id="pieChart"></canvas>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-8">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
-                    <h5 class="fw-bold"><i class="bi bi-graph-up text-success me-2"></i>Monthly Borrow Trend</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="lineChart" style="max-height: 300px;"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <div class="row g-4 mb-4">
-        <!-- Bar Chart -->
-        <div class="col-lg-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
-                    <h5 class="fw-bold"><i class="bi bi-bar-chart-fill text-warning me-2"></i>Library Resources</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="barChart"></canvas>
+                <div>
+                    <h4 style="font-weight: 600; color: var(--text-primary); margin: 0 0 0.25rem 0;">System Update</h4>
+                    <p style="font-size: 0.875rem; color: var(--text-secondary); margin: 0;">The library catalog index has been updated successfully.</p>
                 </div>
             </div>
         </div>
         
-        <!-- Books Category Doughnut -->
-        <div class="col-lg-6">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0">
-                    <h5 class="fw-bold"><i class="bi bi-tags-fill text-info me-2"></i>Top Categories</h5>
-                </div>
-                <div class="card-body">
-                    <canvas id="categoryChart"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Recent Borrowings -->
-    <div class="row g-4 mb-4">
-        <div class="col-lg-12">
-            <div class="card border-0 shadow-sm rounded-4 h-100">
-                <div class="card-header bg-white border-bottom-0 pt-4 pb-0 d-flex justify-content-between align-items-center">
-                    <h5 class="fw-bold m-0"><i class="bi bi-clock-history text-danger me-2"></i>Recent Borrowings</h5>
-                    <a asp-controller="Borrow" asp-action="Index" class="btn btn-sm btn-outline-primary rounded-pill">View All</a>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Student</th>
-                                    <th>Item</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var record in Model.RecentBorrows)
-                                {
-                                    var itemName = record.Book != null ? record.Book.Title : (record.Publication != null ? record.Publication.Title : "Unknown Item");
-                                    <tr>
-                                        <td class="fw-bold text-dark">@(record.Student?.Name ?? "Unknown")</td>
-                                        <td class="text-secondary small">@itemName</td>
-                                        <td>
-                                            @if (record.ReturnDate.HasValue)
-                                            {
-                                                <span class="badge bg-success">Returned</span>
-                                            }
-                                            else if (DateTime.Today > record.DueDate)
-                                            {
-                                                <span class="badge bg-danger">Overdue</span>
-                                            }
-                                            else
-                                            {
-                                                <span class="badge bg-warning text-dark">Active</span>
-                                            }
-                                        </td>
-                                    </tr>
-                                }
-                                @if (!Model.RecentBorrows.Any())
-                                {
-                                    <tr><td colspan="3" class="text-center text-muted">No recent borrowings.</td></tr>
-                                }
-                            </tbody>
-                        </table>
+        <!-- Action Buttons -->
+        <div class="card" style="padding: 2rem;">
+            <h3 style="font-size: 1.25rem; font-weight: 600; color: var(--text-primary); margin: 0 0 1.5rem 0;">Quick Links</h3>
+            
+            <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <a asp-controller="Student" asp-action="Create" class="btn btn-ghost" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-radius: var(--radius-md); background: var(--bg-color); border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(16, 185, 129, 0.1); color: #10B981; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="user-plus" style="width: 16px; height: 16px;"></i>
+                        </div>
+                        <span style="font-weight: 500; color: var(--text-primary);">Register Student</span>
                     </div>
-                </div>
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--text-secondary);"></i>
+                </a>
+                
+                <a asp-controller="Reports" asp-action="Index" class="btn btn-ghost" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-radius: var(--radius-md); background: var(--bg-color); border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(245, 158, 11, 0.1); color: #F59E0B; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="bar-chart-2" style="width: 16px; height: 16px;"></i>
+                        </div>
+                        <span style="font-weight: 500; color: var(--text-primary);">Generate Report</span>
+                    </div>
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--text-secondary);"></i>
+                </a>
+                
+                <a asp-controller="Fines" asp-action="Index" class="btn btn-ghost" style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; border-radius: var(--radius-md); background: var(--bg-color); border: 1px solid var(--border-color);">
+                    <div style="display: flex; align-items: center; gap: 0.75rem;">
+                        <div style="width: 32px; height: 32px; border-radius: 8px; background: rgba(244, 63, 94, 0.1); color: #F43F5E; display: flex; align-items: center; justify-content: center;">
+                            <i data-lucide="credit-card" style="width: 16px; height: 16px;"></i>
+                        </div>
+                        <span style="font-weight: 500; color: var(--text-primary);">Collect Fines</span>
+                    </div>
+                    <i data-lucide="chevron-right" style="width: 16px; height: 16px; color: var(--text-secondary);"></i>
+                </a>
             </div>
         </div>
     </div>
-
 </div>
 
 @section Scripts {
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // Add hover effects for stat cards
-            document.querySelectorAll('.stat-card').forEach(card => {
-                card.addEventListener('mouseenter', () => card.style.transform = 'translateY(-5px)');
-                card.addEventListener('mouseleave', () => card.style.transform = 'translateY(0)');
-            });
+            // Reusable chart options for premium look
+            Chart.defaults.font.family = "'DM Sans', sans-serif";
+            Chart.defaults.color = '#7A7A7A';
 
-            // 1. Books vs Borrowed (Pie Chart)
+            // 1. Resource Availability (Radial/Doughnut)
             new Chart(document.getElementById('pieChart'), {
                 type: 'doughnut',
                 data: {
-                    labels: ['Available Books', 'Issued Books'],
+                    labels: ['Available', 'Issued'],
                     datasets: [{
                         data: [@Model.AvailableBooks, @Model.BorrowedBooks],
-                        backgroundColor: ['#10b981', '#ef4444'],
-                        borderWidth: 0
+                        backgroundColor: ['#111111', '#F7F7F7'],
+                        borderColor: ['#111111', 'rgba(0,0,0,0.06)'],
+                        borderWidth: 2,
+                        hoverOffset: 0,
+                        borderRadius: 4
                     }]
                 },
-                options: {
+                options: { 
                     responsive: true,
-                    plugins: { legend: { position: 'bottom' } }
+                    maintainAspectRatio: false,
+                    cutout: '80%',
+                    plugins: {
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#111111',
+                            padding: 12,
+                            cornerRadius: 8,
+                            titleFont: { size: 14, weight: 'bold' },
+                            bodyFont: { size: 14 }
+                        }
+                    }
                 }
             });
 
-            // 2. Library Resources (Bar Chart)
-            new Chart(document.getElementById('barChart'), {
-                type: 'bar',
-                data: {
-                    labels: ['Books', 'Magazines', 'Newspapers'],
-                    datasets: [{
-                        label: 'Total Count',
-                        data: [@Model.TotalBooks, @Model.TotalMagazines, @Model.TotalNewspapers],
-                        backgroundColor: ['#6366f1', '#f59e0b', '#ec4899'],
-                        borderRadius: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    scales: { y: { beginAtZero: true } },
-                    plugins: { legend: { display: false } }
-                }
-            });
-
-            // 3. Monthly Borrow Trend (Line Chart - Real Data)
+            // 2. Monthly Borrow Trend (Area Chart)
             var monthlyLabels = @Html.Raw(Json.Serialize(Model.MonthlyLabels));
             var monthlyData = @Html.Raw(Json.Serialize(Model.MonthlyBorrowCounts));
             
-            new Chart(document.getElementById('lineChart'), {
+            var ctxLine = document.getElementById('lineChart').getContext('2d');
+            
+            // Create Gradient
+            var gradient = ctxLine.createLinearGradient(0, 0, 0, 320);
+            gradient.addColorStop(0, 'rgba(91, 124, 250, 0.2)');
+            gradient.addColorStop(1, 'rgba(91, 124, 250, 0)');
+            
+            new Chart(ctxLine, {
                 type: 'line',
                 data: {
                     labels: monthlyLabels,
                     datasets: [{
-                        label: 'Borrowings',
+                        label: 'Transactions',
                         data: monthlyData,
-                        borderColor: '#6366f1',
-                        backgroundColor: 'rgba(99,102,241,0.1)',
+                        borderColor: '#5B7CFA',
+                        backgroundColor: gradient,
                         borderWidth: 3,
-                        tension: 0.4,
-                        fill: true
+                        tension: 0.4, // Smooth curved lines
+                        fill: true,
+                        pointBackgroundColor: '#ffffff',
+                        pointBorderColor: '#5B7CFA',
+                        pointBorderWidth: 2,
+                        pointRadius: 0, // Hide points by default for cleaner look
+                        pointHoverRadius: 6
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    scales: { y: { beginAtZero: true } },
-                    plugins: { legend: { display: false } }
-                }
-            });
-
-            // 4. Books Category (Doughnut Chart - Real Data)
-            var categoryLabels = @Html.Raw(Json.Serialize(Model.CategoryLabels));
-            var categoryData = @Html.Raw(Json.Serialize(Model.CategoryCounts));
-            
-            new Chart(document.getElementById('categoryChart'), {
-                type: 'doughnut',
-                data: {
-                    labels: categoryLabels,
-                    datasets: [{
-                        data: categoryData,
-                        backgroundColor: ['#3b82f6', '#10b981', '#f59e0b', '#ef4444', '#8b5cf6'],
-                        borderWidth: 0
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    plugins: { legend: { position: 'right' } }
+                    interaction: {
+                        mode: 'index',
+                        intersect: false,
+                    },
+                    plugins: { 
+                        legend: { display: false },
+                        tooltip: {
+                            backgroundColor: '#111111',
+                            padding: 12,
+                            cornerRadius: 8,
+                            titleFont: { size: 13, weight: 'normal' },
+                            bodyFont: { size: 15, weight: 'bold' },
+                            displayColors: false
+                        }
+                    },
+                    scales: {
+                        y: { 
+                            beginAtZero: true, 
+                            grid: { color: 'rgba(0,0,0,0.03)', drawBorder: false },
+                            ticks: { maxTicksLimit: 6, padding: 10 }
+                        },
+                        x: { 
+                            grid: { display: false, drawBorder: false },
+                            ticks: { padding: 10 }
+                        }
+                    }
                 }
             });
         });

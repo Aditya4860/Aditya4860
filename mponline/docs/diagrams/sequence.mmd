@@ -1,0 +1,15 @@
+sequenceDiagram
+    actor Student
+    participant UI as System Interface
+    participant DB as Database
+    
+    Student->>UI: Request to Borrow Book
+    UI->>DB: Check Availability
+    alt is Available
+        DB-->>UI: Return Success
+        UI->>DB: Create Borrow Record
+        UI-->>Student: Borrow Confirmed
+    else not Available
+        DB-->>UI: Return Out of Stock
+        UI-->>Student: Show Error Message
+    end

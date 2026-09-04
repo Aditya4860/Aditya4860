@@ -2,15 +2,18 @@ using LibraryManagement.MVC.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
+DotNetEnv.Env.Load();
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 // Database Configuration
-// Using SQLite for persistent storage so borrow records survive application restarts
+// Using PostgreSQL (Supabase) for persistent storage
 builder.Services.AddDbContext<LibraryDbContext>(options =>
-    options.UseSqlite("Data Source=library.db"));
+    options.UseNpgsql(Environment.GetEnvironmentVariable("DATABASE_URL")));
 
 // Authentication Configuration
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)

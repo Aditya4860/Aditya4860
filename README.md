@@ -124,7 +124,11 @@ Welcome to my profile and engineering monorepo! I am **Aditya Jain**, a Computer
 ## 📈 Contribution Activity
 
 <div align="center">
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=Aditya4860&theme=radical&hide_border=true&area=true&line=ff3333&custom_title=Aditya's%20GitHub%20Contribution%20Graph" width="100%" alt="GitHub Contribution Graph" />
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Aditya4860/Aditya4860/output/github-contribution-grid-snake-dark.svg" />
+    <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Aditya4860/Aditya4860/output/github-contribution-grid-snake.svg" />
+    <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/Aditya4860/Aditya4860/output/github-contribution-grid-snake.svg" width="100%" />
+  </picture>
 </div>
 
 ---

@@ -39,7 +39,7 @@
                     <th scope="col">Language</th>
                     <th scope="col">Date</th>
                     <th scope="col">Status</th>
-                    <th scope="col" class="text-center">Actions</th>
+                    <th style="text-align: right;">ACTIONS</th>
                 </tr>
             </thead>
             <tbody>
@@ -73,16 +73,16 @@
                                     <span class="badge bg-danger bg-opacity-10 text-danger border border-danger border-opacity-25 px-2 py-1">Unavailable</span>
                                 }
                             </td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm">
-                                    <a asp-action="Details" asp-route-id="@item.MagazineId" class="btn btn-primary" title="Details">
-                                        <i class="bi bi-eye"></i>
+                            <td style="text-align: right;">
+                                <div style="display: flex; gap: 0.5rem; justify-content: flex-end;">
+                                    <a asp-action="Details" asp-route-id="@item.MagazineId" class="btn btn-ghost" style="padding: 0.5rem;" title="Details">
+                                        <i data-lucide="eye" style="width: 18px; color: var(--text-secondary);"></i>
                                     </a>
-                                    <a asp-action="Edit" asp-route-id="@item.MagazineId" class="btn btn-success" title="Edit">
-                                        <i class="bi bi-pencil"></i>
+                                    <a asp-action="Edit" asp-route-id="@item.MagazineId" class="btn btn-ghost" style="padding: 0.5rem;" title="Edit">
+                                        <i data-lucide="edit-2" style="width: 18px;"></i>
                                     </a>
-                                    <a asp-action="Delete" asp-route-id="@item.MagazineId" class="btn btn-danger" title="Delete">
-                                        <i class="bi bi-trash"></i>
+                                    <a asp-action="Delete" asp-route-id="@item.MagazineId" class="btn btn-ghost" style="padding: 0.5rem;" title="Delete">
+                                        <i data-lucide="trash-2" style="width: 18px; color: #DC2626;"></i>
                                     </a>
                                 </div>
                             </td>
@@ -102,10 +102,11 @@
                 <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
                     <a class="page-link" asp-action="Index" 
                        asp-route-page="@(Model.CurrentPage - 1)" 
-                       asp-route-searchQuery="@Model.SearchQuery">Previous</a>
+                       asp-route-searchQuery="@Model.SearchQuery"><i class="bi bi-chevron-left"></i></a>
                 </li>
                 
-                @for (int i = 1; i <= Model.TotalPages; i++)
+                @{ int _mP = 10; int _sP = Math.Max(1, Model.CurrentPage - _mP/2); int _eP = Math.Min(Model.TotalPages, _sP + _mP - 1); if(_eP - _sP + 1 < _mP){_sP = Math.Max(1, _eP - _mP + 1);} }
+                        @for (int i = _sP; i <= _eP; i++)
                 {
                     <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
                         <a class="page-link" asp-action="Index" 
@@ -117,7 +118,7 @@
                 <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
                     <a class="page-link" asp-action="Index" 
                        asp-route-page="@(Model.CurrentPage + 1)" 
-                       asp-route-searchQuery="@Model.SearchQuery">Next</a>
+                       asp-route-searchQuery="@Model.SearchQuery"><i class="bi bi-chevron-right"></i></a>
                 </li>
             </ul>
         </nav>

@@ -1,0 +1,15 @@
+graph LR
+    S([Student])
+    L([Librarian])
+    A([Admin])
+    
+    S --> SB(Search Books)
+    S --> VH(View Borrow History)
+    
+    L --> MB(Manage Books)
+    L --> IB(Issue Book)
+    L --> AR(Accept Return)
+    L --> MS(Manage Students)
+    
+    A --> ML(Manage Librarians)
+    A --> SS(System Settings)

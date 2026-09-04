@@ -73,7 +73,7 @@ namespace LibraryManagement.MVC.Controllers
             ModelState.Remove("IsAvailable");
             ModelState.Remove("Status");
             
-            if (_context.Books.Any(b => b.ISBN == book.ISBN))
+            if (!string.IsNullOrEmpty(book.ISBN) && _context.Books.Any(b => b.ISBN == book.ISBN))
             {
                 ModelState.AddModelError("ISBN", "A book with this ISBN already exists.");
             }
@@ -109,7 +109,7 @@ namespace LibraryManagement.MVC.Controllers
             ModelState.Remove("IsAvailable");
             ModelState.Remove("Status");
 
-            if (_context.Books.Any(b => b.ISBN == book.ISBN && b.Id != id))
+            if (!string.IsNullOrEmpty(book.ISBN) && _context.Books.Any(b => b.ISBN == book.ISBN && b.Id != id))
             {
                 ModelState.AddModelError("ISBN", "A book with this ISBN already exists.");
             }
@@ -128,6 +128,17 @@ namespace LibraryManagement.MVC.Controllers
                     existingBook.TotalCopies = book.TotalCopies;
                     existingBook.AvailableCopies = book.AvailableCopies;
                     existingBook.IsAvailable = book.AvailableCopies > 0;
+                    
+                    // New Fields
+                    existingBook.Publisher = book.Publisher;
+                    existingBook.PublishedDate = book.PublishedDate;
+                    existingBook.Description = book.Description;
+                    existingBook.PageCount = book.PageCount;
+                    existingBook.Language = book.Language;
+                    existingBook.AverageRating = book.AverageRating;
+                    existingBook.RatingsCount = book.RatingsCount;
+                    existingBook.Thumbnail = book.Thumbnail;
+                    existingBook.GoogleBookId = book.GoogleBookId;
 
                     await _context.SaveChangesAsync();
                 }

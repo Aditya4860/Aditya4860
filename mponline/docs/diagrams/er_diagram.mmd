@@ -1,0 +1,28 @@
+erDiagram
+    STUDENT ||--o{ BORROW : makes
+    BOOK ||--o{ BORROW : is_borrowed
+    LIBRARIAN ||--o{ BOOK : manages
+    STUDENT {
+        int StudentId
+        string Name
+        string Email
+        string Phone
+    }
+    BOOK {
+        int BookId
+        string Title
+        string Author
+        string ISBN
+        int Copies
+    }
+    BORROW {
+        int BorrowId
+        date BorrowDate
+        date ReturnDate
+        string Status
+    }
+    LIBRARIAN {
+        int LibrarianId
+        string Name
+        string Email
+    }

@@ -53,8 +53,11 @@ namespace LibraryManagement.MVC.Controllers
             var data = await query.OrderBy(b => b.Title).ToListAsync();
 
             var builder = new StringBuilder();
-            builder.AppendLine("ID,Title,Author,ISBN,Category,Total Copies,Available");
-            foreach (var item in data) builder.AppendLine($"{item.Id},\"{item.Title}\",\"{item.Author}\",\"{item.ISBN}\",\"{item.Category}\",{item.TotalCopies},{item.AvailableCopies}");
+            builder.AppendLine("ID,Title,Author,ISBN,Category,Publisher,Language,Pages,Published Date,Total Copies,Available");
+            foreach (var item in data) 
+            {
+                builder.AppendLine($"{item.Id},\"{item.Title}\",\"{item.Author}\",\"{item.ISBN}\",\"{item.Category}\",\"{item.Publisher}\",\"{item.Language}\",{item.PageCount},{(item.PublishedDate.HasValue ? item.PublishedDate.Value.ToString("yyyy-MM-dd") : "")},{item.TotalCopies},{item.AvailableCopies}");
+            }
 
             return File(Encoding.UTF8.GetBytes(builder.ToString()), "text/csv", "BooksReport.csv");
         }

@@ -1,0 +1,31 @@
+name: Build and Validate
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    name: Build (.NET 8)
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup .NET 8
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Restore NuGet dependencies
+        run: dotnet restore LibraryManagement.MVC/LibraryManagement.MVC.csproj
+
+      - name: Build (Release)
+        run: dotnet build LibraryManagement.MVC/LibraryManagement.MVC.csproj --no-restore --configuration Release
+
+      # Uncomment when a test project is added to the solution
+      # - name: Run tests
+      #   run: dotnet test --no-build --verbosity normal --configuration Release

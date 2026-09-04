@@ -1,0 +1,9 @@
+graph TD
+    UI[User Interface - ASP.NET Core MVC]
+    Controller[Controllers - Business Logic]
+    EF[Entity Framework Core - Data Access]
+    SQL[(SQL Server Database)]
+    
+    UI -->|HTTP Requests| Controller
+    Controller -->|LINQ Queries| EF
+    EF -->|SQL Queries| SQL

@@ -1,4 +1,12 @@
 wwwroot\css\style.css
+wwwroot\css\styles\animations.css
+wwwroot\css\styles\components.css
+wwwroot\css\styles\dashboard.css
+wwwroot\css\styles\forms.css
+wwwroot\css\styles\layout.css
+wwwroot\css\styles\tables.css
+wwwroot\css\styles\theme.css
+wwwroot\css\styles\variables.css
 wwwroot\images\announcement.jpg
 wwwroot\images\book1.jpg
 wwwroot\images\book2.jpg

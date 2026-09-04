@@ -11,6 +11,24 @@ namespace LibraryManagement.MVC.Controllers
     public class AccountController : Controller
     {
         [HttpGet]
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult Register(RegisterViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                TempData["SuccessMessage"] = "Account created successfully. Please login.";
+                return RedirectToAction("Login", "Account");
+            }
+            return View(model);
+        }
+
+        [HttpGet]
         public IActionResult Login(string? returnUrl = null)
         {
             ViewData["ReturnUrl"] = returnUrl;

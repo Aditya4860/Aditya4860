@@ -79,7 +79,7 @@ namespace LibraryManagement.MVC.Controllers
             {
                 BookId = bookId,
                 StudentsList = new SelectList(_context.Students, "Id", "Name"),
-                AvailableBooksList = new SelectList(_context.Books.Where(b => b.IsAvailable), "Id", "Title"),
+                AvailableBooksList = new SelectList(_context.Books.Where(b => b.IsAvailable).OrderBy(b => b.Title).Take(500), "Id", "Title"),
                 AvailablePublicationsList = new SelectList(_context.Publications.Where(p => p.IsAvailable), "Id", "Title"),
                 LibrariansList = new SelectList(_context.Librarians, "Id", "Name"),
                 DueDate = DateTime.Today.AddDays(15)
@@ -153,7 +153,7 @@ namespace LibraryManagement.MVC.Controllers
 
             ValidationFailed:
             model.StudentsList = new SelectList(_context.Students, "Id", "Name", model.StudentId);
-            model.AvailableBooksList = new SelectList(_context.Books.Where(b => b.IsAvailable), "Id", "Title", model.BookId);
+            model.AvailableBooksList = new SelectList(_context.Books.Where(b => b.IsAvailable).OrderBy(b => b.Title).Take(500), "Id", "Title", model.BookId);
             model.AvailablePublicationsList = new SelectList(_context.Publications.Where(p => p.IsAvailable), "Id", "Title", model.PublicationId);
             model.LibrariansList = new SelectList(_context.Librarians, "Id", "Name", model.LibrarianId);
             return View(model);

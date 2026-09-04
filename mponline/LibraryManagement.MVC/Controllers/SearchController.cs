@@ -35,13 +35,17 @@ namespace LibraryManagement.MVC.Controllers
             viewModel.Books = await _context.Books
                 .Where(b => b.Title.ToLower().Contains(lowerQuery) || 
                             b.Author.ToLower().Contains(lowerQuery) || 
-                            b.ISBN.Contains(lowerQuery))
+                            (b.ISBN != null && b.ISBN.Contains(lowerQuery)) ||
+                            (b.Category != null && b.Category.ToLower().Contains(lowerQuery)) ||
+                            (b.Publisher != null && b.Publisher.ToLower().Contains(lowerQuery)))
+                .Take(20)
                 .ToListAsync();
 
             // Search Publications
             viewModel.Publications = await _context.Publications
                 .Where(p => p.Title.ToLower().Contains(lowerQuery) || 
                             p.Publisher.ToLower().Contains(lowerQuery))
+                .Take(20)
                 .ToListAsync();
 
             // Search Students
@@ -49,6 +53,7 @@ namespace LibraryManagement.MVC.Controllers
                 .Where(s => s.Name.ToLower().Contains(lowerQuery) || 
                             s.EnrollmentNo.ToLower().Contains(lowerQuery) || 
                             (s.Email != null && s.Email.ToLower().Contains(lowerQuery)))
+                .Take(20)
                 .ToListAsync();
 
             // Search Librarians
@@ -56,6 +61,7 @@ namespace LibraryManagement.MVC.Controllers
                 .Where(l => l.Name.ToLower().Contains(lowerQuery) || 
                             l.EmployeeId.ToLower().Contains(lowerQuery) || 
                             (l.Email != null && l.Email.ToLower().Contains(lowerQuery)))
+                .Take(20)
                 .ToListAsync();
 
             return View(viewModel);

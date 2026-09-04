@@ -49,6 +49,42 @@
                                 <span asp-validation-for="Category" class="text-danger small mt-1 d-block"></span>
                             </div>
 
+                            <div class="col-md-6">
+                                <label asp-for="Publisher" class="form-label"></label>
+                                <input asp-for="Publisher" class="form-control" />
+                                <span asp-validation-for="Publisher" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label asp-for="Language" class="form-label"></label>
+                                <input asp-for="Language" class="form-control" />
+                                <span asp-validation-for="Language" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="PublishedDate" class="form-label">Published Date</label>
+                                <input asp-for="PublishedDate" class="form-control" type="date" />
+                                <span asp-validation-for="PublishedDate" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="PageCount" class="form-label">Page Count</label>
+                                <input asp-for="PageCount" class="form-control" type="number" min="0" />
+                                <span asp-validation-for="PageCount" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-md-4">
+                                <label asp-for="Thumbnail" class="form-label">Cover Image URL</label>
+                                <input asp-for="Thumbnail" class="form-control" />
+                                <span asp-validation-for="Thumbnail" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
+                            <div class="col-12">
+                                <label asp-for="Description" class="form-label"></label>
+                                <textarea asp-for="Description" class="form-control" rows="3"></textarea>
+                                <span asp-validation-for="Description" class="text-danger small mt-1 d-block"></span>
+                            </div>
+
                             <div class="col-md-3">
                                 <label asp-for="TotalCopies" class="form-label"></label>
                                 <input asp-for="TotalCopies" class="form-control" type="number" min="0" />
